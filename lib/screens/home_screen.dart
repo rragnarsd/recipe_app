@@ -1,3 +1,4 @@
+/*
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:recipe_api/models/recipe.dart';
@@ -16,8 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isLoading = true;
 
   final url =
-      'https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=$API_ID&app_key=$API_KEY';
-  getApiData() async {
+      'https://api.edamam.com/api/recipes/v2?type=public&q=lunch&app_id=$API_ID&app_key=$API_KEY';
+ Future getApiData() async {
     var response = await http.get(Uri.parse(url));
     Map json = jsonDecode(response.body);
     json['hits'].forEach((e) {
@@ -38,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getApiData();
   }
@@ -60,3 +60,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 
 class Recipe {
   final String image;
@@ -18,3 +19,4 @@ class Recipe {
     required this.dietLabels,
   });
 }
+*/
