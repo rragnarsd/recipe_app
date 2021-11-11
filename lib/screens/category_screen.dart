@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_api/utils/category_list.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -7,27 +9,35 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        child: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0,
-          children: [
-            Stack(
-              children: [
-                Image.network(
-                    'https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', fit: BoxFit.cover,),
-                Positioned(
-                    bottom: 30.0,
-                    left: 10.0,
-                    child: Text(
-                      'Breakfast',
-                      style: TextStyle(fontSize: 20.0),
+          child: GridView.builder(
+              itemCount: items.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
+              ),
+              itemBuilder: (context, index) {
+                return Stack(
+                  children: [
+                    SizedBox(
+                      height: 200.0,
+                      width: 200.0,
+                      child: Image.network(
+                        items[index].image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                ),
-              ],
-            )
-          ],
-        ),
+                    Positioned(
+                      bottom: 30.0,
+                      left: 10.0,
+                      child: Text(
+                        items[index].category,
+                        style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
+                );
+              }),
       ),
     );
   }

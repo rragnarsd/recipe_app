@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_api/icon_list.dart';
+import 'package:recipe_api/utils/icon_list.dart';
 
-import '../recipe_list.dart';
+import '../utils/recipe_list.dart';
 
 class HomeWidgets extends StatelessWidget {
   const HomeWidgets({Key? key}) : super(key: key);
@@ -45,16 +45,16 @@ class HomePopularGrid extends StatelessWidget {
     return SizedBox(
       height: 400.0,
       child: ListView.builder(
-        itemCount: listOfBreakfast.length,
+        itemCount: popularRecipes.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 20.0),
             child: HomeStack(
-                image: listOfBreakfast[index].recipeImage,
-                text: listOfBreakfast[index].recipeName,
-              prepTime: listOfBreakfast[index].prepTime.toString(),
-              recipeReview: listOfBreakfast[index].recipeReview.toString(),
+                image: popularRecipes[index].recipeImage,
+                text: popularRecipes[index].recipeName,
+              prepTime: popularRecipes[index].prepTime.toString(),
+              recipeReview: popularRecipes[index].recipeReview.toString(),
             ),
           );
         },
