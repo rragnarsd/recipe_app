@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_api/utils/icon_list.dart';
+import 'package:recipe_api/widgets/search_field.dart';
 
 import '../utils/recipe_list.dart';
 
@@ -11,26 +12,73 @@ class HomeWidgets extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              SizedBox(
-                height: 40.0,
-              ),
-              HomeGrid(),
-              SizedBox(
-                height: 40.0,
-              ),
-              Text(
-                'Popular Recipes',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              HomePopularGrid()
-            ]),
+        child: SingleChildScrollView(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  'FoodRecipe',
+                  style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                HomeHeaderRow(),
+                SizedBox(
+                  height: 20.0,
+                ),
+                SearchField(),
+                SizedBox(
+                  height: 40.0,
+                ),
+                HomeGrid(),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  'Popular Recipes',
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                HomePopularGrid()
+              ]),
+        ),
       ),
+    );
+  }
+}
+
+class HomeHeaderRow extends StatelessWidget {
+  const HomeHeaderRow({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Text(
+          'Good Morning',
+          style: TextStyle(fontSize: 20.0),
+        ),
+        Container(
+          width: 50.0,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.grey.shade200,
+          ),
+          child: Image.asset(
+            'assets/cake.png',
+            fit: BoxFit.cover,
+          ),
+        )
+      ],
     );
   }
 }
@@ -43,7 +91,7 @@ class HomePopularGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400.0,
+      height: 350.0,
       child: ListView.builder(
         itemCount: popularRecipes.length,
         scrollDirection: Axis.horizontal,
@@ -51,8 +99,8 @@ class HomePopularGrid extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(right: 20.0),
             child: HomeStack(
-                image: popularRecipes[index].recipeImage,
-                text: popularRecipes[index].recipeName,
+              image: popularRecipes[index].recipeImage,
+              text: popularRecipes[index].recipeName,
               prepTime: popularRecipes[index].prepTime.toString(),
               recipeReview: popularRecipes[index].recipeReview.toString(),
             ),
@@ -81,7 +129,7 @@ class HomeStack extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          height: 400.0,
+          height: 350.0,
           width: 200.0,
           child: Image.network(
             image,
@@ -104,26 +152,26 @@ class HomeStack extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Text(
                     'Time $prepTime',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16.0,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Text(
-                   'Stars: $recipeReview',
-                    style: TextStyle(
+                    'Stars: $recipeReview',
+                    style: const TextStyle(
                       fontSize: 16.0,
                     ),
                   )

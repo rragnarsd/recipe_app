@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_api/screens/category_screen.dart';
+import 'package:recipe_api/custom_navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CategoryScreen()
+      home: const CustomNavBar()
     );
   }
 }
