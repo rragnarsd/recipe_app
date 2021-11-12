@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_api/screens/category_screen.dart';
 import 'package:recipe_api/screens/home_widgets.dart';
+import 'package:recipe_api/screens/profile_screen.dart';
 import 'package:recipe_api/screens/saved_screen.dart';
 import 'package:unicons/unicons.dart';
 
@@ -24,6 +25,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
     const HomeWidgets(),
     const CategoryScreen(),
     const SavedScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -50,6 +52,10 @@ class _CustomNavBarState extends State<CustomNavBar> {
           BottomNavigationBarItem(
             icon: Icon(UniconsLine.bookmark),
             label: 'Saved',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(UniconsLine.user),
+            label: 'Profile',
           ),
         ],
       ),
