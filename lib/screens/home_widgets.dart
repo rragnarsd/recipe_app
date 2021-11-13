@@ -11,7 +11,7 @@ class HomeWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: SingleChildScrollView(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,8 @@ class HomeWidgets extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-                HomePopularGrid()
+                HomePopularGrid(),
+                SizedBox(height: 10.0,)
               ]),
         ),
       ),

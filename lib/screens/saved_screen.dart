@@ -9,7 +9,7 @@ class SavedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
           child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
@@ -26,7 +26,8 @@ class SavedScreen extends StatelessWidget {
                   height: 20.0,
                 ),
                 SavedTabButtons(),
-                SavedListView()
+                SavedListView(),
+                SizedBox(height: 10.0,),
               ],
             ),
           ),
@@ -91,7 +92,7 @@ class SavedListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.9,
+      height: MediaQuery.of(context).size.height * 0.8,
       child: ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
@@ -118,7 +119,7 @@ class SavedListView extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         'Beef Steak',
                         style: TextStyle(
@@ -129,16 +130,28 @@ class SavedListView extends StatelessWidget {
                       SizedBox(
                         height: 5.0,
                       ),
-                      Text(
-                        'Prep Time',
-                        style: TextStyle(fontSize: 16.0),
+                      Row(
+                        children: [
+                          Icon(UniconsLine.clock, size: 16.0, color: Colors.grey.shade500,),
+                          SizedBox(width: 5.0,),
+                          Text(
+                            'Prep Time',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 5.0,
                       ),
-                      Text(
-                        'Cook Time',
-                        style: TextStyle(fontSize: 16.0),
+                      Row(
+                        children: [
+                          Icon(UniconsLine.clock, size: 16.0, color: Colors.grey.shade500,),
+                          SizedBox(width: 5.0,),
+                          Text(
+                            'Cook Time',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ],
                       ),
                     ],
                   ),
