@@ -16,40 +16,6 @@ class _CustomNavBarState extends State<CustomNavBar>
     with SingleTickerProviderStateMixin {
   int selectedIndex = 0;
 
-  late Animation<double> animation;
-  late AnimationController animController;
-
-  @override
-  void initState() {
-    super.initState();
-    animController = AnimationController(
-      reverseDuration: Duration(milliseconds: 700),
-      duration: Duration(milliseconds: 800),
-      vsync: this,
-    );
-    animation = Tween<double>(
-      begin: 0.9,
-      end: 1.05,
-    ).animate(animController)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          animController.velocity;
-        } else if (status == AnimationStatus.dismissed) {
-          animController.forward();
-        }
-      });
-    animController.forward();
-  }
-
-  @override
-  void dispose() {
-    animController.dispose();
-    super.dispose();
-  }
-
   @override
   void _onItemTapped(int index) {
     setState(() {
@@ -76,33 +42,21 @@ class _CustomNavBarState extends State<CustomNavBar>
         showUnselectedLabels: true,
         selectedItemColor: Colors.grey.shade900,
         type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Transform.scale(
-              scale: animation.value,
-              child: Icon(UniconsLine.home),
-            ),
+            icon: Icon(UniconsLine.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Transform.scale(
-              scale: animation.value,
-              child: Icon(UniconsLine.apps),
-            ),
+            icon: Icon(UniconsLine.apps),
             label: 'Category',
           ),
           BottomNavigationBarItem(
-            icon: Transform.scale(
-              scale: animation.value,
-              child: Icon(UniconsLine.bookmark),
-            ),
+            icon: Icon(UniconsLine.bookmark),
             label: 'Saved',
           ),
           BottomNavigationBarItem(
-            icon: Transform.scale(
-              scale: animation.value,
-              child: Icon(UniconsLine.user),
-            ),
+            icon: Icon(UniconsLine.user),
             label: 'Profile',
           ),
         ],
