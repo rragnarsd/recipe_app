@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe_api/screens/category_screen.dart';
 import 'package:recipe_api/screens/home_widgets.dart';
 import 'package:recipe_api/screens/profile_screen.dart';
+import 'package:recipe_api/screens/recipe_screen.dart';
 import 'package:recipe_api/screens/saved_screen.dart';
 import 'package:unicons/unicons.dart';
 
