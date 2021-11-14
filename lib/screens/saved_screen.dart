@@ -56,7 +56,7 @@ class SavedTabButtons extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 3.3,
                   child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Filter', style: TextStyle(color: Colors.black87),),
+                    child: const Text('Filter', style: TextStyle(color: Colors.black87),),
                   ),
                 ),
                 const SizedBox(width: 10.0,),
@@ -64,7 +64,7 @@ class SavedTabButtons extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 3.3,
                   child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Sort', style: TextStyle(color: Colors.black87),),
+                    child: const Text('Sort', style: TextStyle(color: Colors.black87),),
                   ),
                 ),
                 const SizedBox(width: 10.0,),
@@ -72,7 +72,7 @@ class SavedTabButtons extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 3.3,
                   child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Category', style: TextStyle(color: Colors.black87),),
+                    child: const Text('Category', style: TextStyle(color: Colors.black87),),
                   ),
                 )
               ],
@@ -120,34 +120,34 @@ class SavedListView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Beef Steak',
                         style: TextStyle(
                           fontSize: 22.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5.0,
                       ),
                       Row(
                         children: [
                           Icon(UniconsLine.clock, size: 16.0, color: Colors.grey.shade500,),
-                          SizedBox(width: 5.0,),
-                          Text(
+                          const SizedBox(width: 5.0,),
+                          const Text(
                             'Prep Time',
                             style: TextStyle(fontSize: 16.0),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5.0,
                       ),
                       Row(
                         children: [
                           Icon(UniconsLine.clock, size: 16.0, color: Colors.grey.shade500,),
-                          SizedBox(width: 5.0,),
-                          Text(
+                          const SizedBox(width: 5.0,),
+                          const Text(
                             'Cook Time',
                             style: TextStyle(fontSize: 16.0),
                           ),

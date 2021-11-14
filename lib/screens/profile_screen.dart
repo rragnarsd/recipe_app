@@ -80,7 +80,7 @@ class ProfileListTile extends StatelessWidget {
       margin: const EdgeInsets.all(5.0),
       elevation: 2.0,
       child: ListTile(
-        title: Text(text),
+        title: Text(text, style: const TextStyle(fontWeight: FontWeight.w600),),
         horizontalTitleGap: 5.0,
         leading: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -109,9 +109,17 @@ class ProfileHeader extends StatelessWidget {
       children: [
         Container(
           height: 140.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(0, 2),
+              ),
+            ],
             shape: BoxShape.circle,
-            image: DecorationImage(
+            image: const DecorationImage(
               fit: BoxFit.cover,
               alignment: Alignment.topCenter,
               image: NetworkImage(
