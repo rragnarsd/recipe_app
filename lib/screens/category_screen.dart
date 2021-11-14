@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_api/screens/receipes_screen.dart';
 import 'package:recipe_api/utils/category_list.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -33,35 +34,44 @@ class CategoryGridView extends StatelessWidget {
         ),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          return Stack(
-            children: [
-              SizedBox(
-                height: 200.0,
-                width: 200.0,
-                child: Image.network(
-                  items[index].image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                bottom: 0.0,
-                child: Container(
+          return InkWell(
+            child: Stack(
+              children: [
+                SizedBox(
+                  height: 200.0,
                   width: 200.0,
-                  color: Colors.black.withOpacity(0.35),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      items[index].category,
-                      style: const TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                  child: Image.network(
+                    items[index].image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  bottom: 0.0,
+                  child: Container(
+                    width: 200.0,
+                    color: Colors.black.withOpacity(0.35),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        items[index].category,
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const RecipesScreen(),
+                settings: RouteSettings(arguments: items[index]),
+              ),
+            ),
           );
         });
   }

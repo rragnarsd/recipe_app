@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_api/models/food.dart';
 import 'package:unicons/unicons.dart';
 
 class RecipeScreen extends StatelessWidget {
@@ -6,36 +7,39 @@ class RecipeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final popularRecipes = ModalRoute.of(context)!.settings.arguments as Recipe;
     return Scaffold(
-        body: SingleChildScrollView(
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Stack(clipBehavior: Clip.none, children: [
-          Image.network(
-            'https://images.unsplash.com/photo-1492739159057-7d1896b3c63f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1032&q=80',
-            fit: BoxFit.cover,
-          ),
-          Positioned(
-            top: 180.0,
-            left: 18.0,
-            child: Column(
-              children: const [
-                RecipeAbout(),
-                SizedBox(
-                  height: 20.0,
-                ),
-                RecipeIngredient(),
-                SizedBox(
-                  height: 20.0,
-                ),
-                RecipeMethod(),
-              ],
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 1.2,
+          width: MediaQuery.of(context).size.width,
+          child: Stack(clipBehavior: Clip.none, children: [
+            Image.network(
+              popularRecipes.recipeImage,
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 2.5,
             ),
-          ),
-        ]),
+            Positioned(
+              top: 180.0,
+              left: 18.0,
+              child: Column(
+                children: const [
+                  RecipeAbout(),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  RecipeIngredient(),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  RecipeMethod(),
+                ],
+              ),
+            ),
+          ]),
+        ),
       ),
-    ),
     );
   }
 }
@@ -47,6 +51,7 @@ class RecipeMethod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final popularRecipes = ModalRoute.of(context)!.settings.arguments as Recipe;
     return Container(
       width: MediaQuery.of(context).size.width / 1.1,
       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
@@ -65,21 +70,40 @@ class RecipeMethod extends StatelessWidget {
             height: 10.0,
           ),
           Row(
-            children: const [
-              Icon(UniconsLine.label),
-              SizedBox(
+            children: [
+              const Icon(UniconsLine.label),
+              const SizedBox(
                 width: 5.0,
               ),
-              Text('Marinate salmon with salt and pepper'),
+              Expanded(
+                child: Text(
+                  popularRecipes.recipeMethod[0],
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    height: 1.2,
+                  ),
+                ),
+              ),
             ],
           ),
+          const SizedBox(
+            height: 10.0,
+          ),
           Row(
-            children: const [
-              Icon(UniconsLine.label),
-              SizedBox(
+            children: [
+              const Icon(UniconsLine.label),
+              const SizedBox(
                 width: 5.0,
               ),
-              Text('Heat a skillet until hot'),
+              Expanded(
+                child: Text(
+                  popularRecipes.recipeMethod[1],
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    height: 1.2,
+                  ),
+                ),
+              ),
             ],
           ),
           const SizedBox(
@@ -98,6 +122,7 @@ class RecipeAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final popularRecipes = ModalRoute.of(context)!.settings.arguments as Recipe;
     return Container(
       width: MediaQuery.of(context).size.width / 1.1,
       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
@@ -108,9 +133,9 @@ class RecipeAbout extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Salmon Steak',
-                style: TextStyle(
+              Text(
+                popularRecipes.recipeName,
+                style: const TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                 ),
@@ -134,34 +159,36 @@ class RecipeAbout extends StatelessWidget {
           ),
           OutlinedButton(
             onPressed: () {},
-            child: const Text('Dinner'),
+            child: Text(popularRecipes.recipeCategory),
           ),
           const SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
           Divider(thickness: 2.0, color: Colors.grey.shade400),
           const SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                children: const [
-                  Icon(UniconsLine.clock),
-                  SizedBox(
+                children: [
+                  const Icon(UniconsLine.clock),
+                  const SizedBox(
                     width: 5.0,
                   ),
-                  Text('Prep Time')
+                  Text(
+                      '${popularRecipes.prepTime.toStringAsFixed(0)} M Prep Time'),
                 ],
               ),
               Row(
-                children: const [
-                  Icon(UniconsLine.clock),
-                  SizedBox(
+                children: [
+                  const Icon(UniconsLine.clock),
+                  const SizedBox(
                     width: 5.0,
                   ),
-                  Text('Prep Time')
+                  Text(
+                      '${popularRecipes.cookTime.toStringAsFixed(0)} M Cook Time'),
                 ],
               ),
             ],
@@ -170,12 +197,12 @@ class RecipeAbout extends StatelessWidget {
             height: 10.0,
           ),
           Row(
-            children: const [
-              Icon(UniconsLine.users_alt),
-              SizedBox(
+            children: [
+              const Icon(UniconsLine.users_alt),
+              const SizedBox(
                 width: 5.0,
               ),
-              Text('Sharing')
+              Text('${popularRecipes.recipeServing} People Serving')
             ],
           ),
           const SizedBox(
@@ -194,57 +221,69 @@ class RecipeIngredient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final popularRecipes = ModalRoute.of(context)!.settings.arguments as Recipe;
     return Container(
       color: Colors.grey.shade200,
-      height: 120.0,
+      height: 140.0,
       width: MediaQuery.of(context).size.width / 1.1,
       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Ingredients',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w600,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Ingredients',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10.0,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: const [
-                  Icon(UniconsLine.check),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  Text('Salmon'),
-                ],
-              ),
-              Row(
-                children: const [
-                  Icon(UniconsLine.check),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  Text('Salmon'),
-                ],
-              ),
-              Row(
-                children: const [
-                  Icon(UniconsLine.check),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  Text('Salmon'),
-                ],
-              ),
-            ],
-          )
-        ],
+            const SizedBox(
+              height: 10.0,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(UniconsLine.check),
+                    const SizedBox(
+                      width: 5.0,
+                    ),
+                    Text(popularRecipes.recipeIngredients[0]),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(UniconsLine.check),
+                    const SizedBox(
+                      width: 5.0,
+                    ),
+                    Text(popularRecipes.recipeIngredients[1]),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(UniconsLine.check),
+                    const SizedBox(
+                      width: 5.0,
+                    ),
+                    Text(popularRecipes.recipeIngredients[2]),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(UniconsLine.check),
+                    const SizedBox(
+                      width: 5.0,
+                    ),
+                    Text(popularRecipes.recipeIngredients[3]),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_api/screens/receipes_screen.dart';
+import 'package:recipe_api/screens/recipe_screen.dart';
 import 'package:recipe_api/utils/icon_list.dart';
 import 'package:recipe_api/widgets/search_field.dart';
 
@@ -46,7 +48,9 @@ class HomeWidgets extends StatelessWidget {
                   height: 20.0,
                 ),
                 HomePopularGrid(),
-                SizedBox(height: 10.0,)
+                SizedBox(
+                  height: 10.0,
+                )
               ]),
         ),
       ),
@@ -97,14 +101,27 @@ class HomePopularGrid extends StatelessWidget {
         itemCount: popularRecipes.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: HomeStack(
-              image: popularRecipes[index].recipeImage,
-              text: popularRecipes[index].recipeName,
-              prepTime: popularRecipes[index].prepTime.toString(),
-              recipeReview: popularRecipes[index].recipeReview.toString(),
+          return InkWell(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: HomeStack(
+                image: popularRecipes[index].recipeImage,
+                text: popularRecipes[index].recipeName,
+                prepTime: popularRecipes[index].prepTime.toString(),
+                recipeReview: popularRecipes[index].recipeReview.toString(),
+              ),
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const RecipeScreen(),
+                    settings: RouteSettings(
+                      arguments: popularRecipes[index],
+                    ),
+                ),
+              );
+            },
           );
         },
       ),
@@ -223,31 +240,41 @@ class HomeGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      height: 120.0,
-      width: 100.0,
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          Expanded(
-            child: Image.asset(
-              image,
-              fit: BoxFit.cover,
+    return InkWell(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        height: 120.0,
+        width: 100.0,
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 5.0,
-          ),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 16.0),
-          ),
-        ],
+            const SizedBox(
+              height: 5.0,
+            ),
+            Text(
+              text,
+              style: const TextStyle(fontSize: 16.0),
+            ),
+          ],
+        ),
       ),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const RecipesScreen(),
+          ),
+        );
+      },
     );
   }
 }
