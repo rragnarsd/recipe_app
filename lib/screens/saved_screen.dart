@@ -16,19 +16,19 @@ class SavedScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
               Text(
                 'Saved',
                 style: Theme.of(context).textTheme.headline1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              SavedTabButtons(),
-              SavedListView(),
-              SizedBox(
+              const SavedTabButtons(),
+              const SavedListView(),
+              const SizedBox(
                 height: 10.0,
               ),
             ],
@@ -110,18 +110,19 @@ class SavedListView extends StatelessWidget {
           itemCount: items.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+              padding: const EdgeInsets.only(bottom: 15.0),
               child: SizedBox(
                 height: 120.0,
-                child: Container(
-                  decoration: BoxDecoration(color: Colors.grey.shade200),
+                child: Material(
+                  color: Colors.white,
+                  elevation: 2.0,
                   child: Row(
                     children: [
                       const ReusableNetworkImage(
                         imageUrl:
                             'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1706&q=80',
                         height: 120.0,
-                        width: 140.0,
+                        width: 120.0,
                       ),
                       const SizedBox(
                         width: 15.0,
@@ -180,25 +181,29 @@ class SavedListView extends StatelessWidget {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  UniconsLine.bookmark,
-                                  size: 30.0,
+                              Expanded(
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    UniconsLine.bookmark,
+                                    size: 30.0,
+                                  ),
                                 ),
                               ),
-                              OutlinedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Category',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText2!
-                                      .copyWith(
-                                        color: Colors.black87,
-                                      ),
-                                ),
-                              )
+                                Expanded(
+                                  child: OutlinedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Category',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2!
+                                        .copyWith(
+                                          color: Colors.black87,
+                                        ),
+                                  ),
+                              ),
+                                )
                             ]),
                       )
                     ],

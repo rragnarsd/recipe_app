@@ -16,18 +16,18 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
               Text(
                 'Profile',
                 style: Theme.of(context).textTheme.headline1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              ProfileHeader(),
-              ProfileListView()
+              const ProfileHeader(),
+              const ProfileListView()
             ],
           ),
         ),
@@ -47,20 +47,35 @@ class ProfileListView extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
-          children: const [
-            ProfileListTile(
+          children: [
+            const ProfileListTile(
               text: 'Account',
               icon: UniconsLine.user_circle,
             ),
-            ProfileListTile(
+            Divider(
+              color: Colors.grey.shade400,
+              indent: 10.0,
+              endIndent: 10.0,
+            ),
+            const ProfileListTile(
               text: 'Settings',
               icon: UniconsLine.setting,
             ),
-            ProfileListTile(
+            Divider(
+              color: Colors.grey.shade400,
+              indent: 10.0,
+              endIndent: 10.0,
+            ),
+            const ProfileListTile(
               text: 'App Info',
               icon: UniconsLine.info_circle,
             ),
-            ProfileListTile(
+            Divider(
+              color: Colors.grey.shade400,
+              indent: 10.0,
+              endIndent: 10.0,
+            ),
+            const ProfileListTile(
               text: 'Logout',
               icon: UniconsLine.sign_out_alt,
             ),
@@ -77,23 +92,19 @@ class ProfileListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.all(5.0),
-      elevation: 2.0,
-      child: ListTile(
-        title: Text(text, style: Theme.of(context).textTheme.headline3),
-        horizontalTitleGap: 5.0,
-        leading: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Icon(icon, color: Theme.of(context).iconTheme.color),
-        ),
-        trailing: Icon(
-          UniconsLine.angle_right,
-          size: 30.0,
-          color: Theme.of(context).iconTheme.color,
-        ),
-        onTap: () {},
+    return ListTile(
+      title: Text(text, style: Theme.of(context).textTheme.headline3),
+      horizontalTitleGap: 5.0,
+      leading: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Icon(icon, color: Theme.of(context).iconTheme.color),
       ),
+      trailing: Icon(
+        UniconsLine.angle_right,
+        size: 30.0,
+        color: Theme.of(context).iconTheme.color,
+      ),
+      onTap: () {},
     );
   }
 }
@@ -111,7 +122,8 @@ class ProfileHeader extends StatelessWidget {
       children: [
         Container(
           height: 140.0,
-          decoration: BoxDecoration(color: Colors.grey.shade200,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade200,
             shape: BoxShape.circle,
             image: const DecorationImage(
               image: CachedNetworkImageProvider(

@@ -15,19 +15,19 @@ class RecipesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
               Text(
                 'Recipes',
                 style: Theme.of(context).textTheme.headline1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              RecipesTabButtons(),
-              RecipesListView(),
-              SizedBox(
+              const RecipesTabButtons(),
+              const RecipesListView(),
+              const SizedBox(
                 height: 10.0,
               ),
             ],
@@ -226,11 +226,10 @@ class RecipesListItem extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           recipeCategory,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2!
-                              .copyWith(color: Colors.black87,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Colors.black87,
+                                  ),
                         ),
                       )
                     ]),

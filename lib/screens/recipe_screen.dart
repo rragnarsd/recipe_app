@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_api/models/food.dart';
 import 'package:unicons/unicons.dart';
@@ -14,11 +15,11 @@ class RecipeScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 1.2,
           width: MediaQuery.of(context).size.width,
           child: Stack(clipBehavior: Clip.none, children: [
-            Image.network(
-              popularRecipes.recipeImage,
-              fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2.5,
+            CachedNetworkImage(
+                imageUrl: popularRecipes.recipeImage,
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 2.5,
             ),
             Positioned(
               top: 180.0,
