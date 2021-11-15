@@ -134,7 +134,7 @@ class RecipeAbout extends StatelessWidget {
             child: Text(
               popularRecipes.recipeCategory,
               style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                    color: Colors.black87,
+                color: Theme.of(context).primaryColor,
                   ),
             ),
           ),

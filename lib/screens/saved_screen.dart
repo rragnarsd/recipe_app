@@ -89,7 +89,7 @@ class TabButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                color: Colors.black87,
+            color: Theme.of(context).primaryColor,
               ),
         ),
       ),
@@ -190,8 +190,9 @@ class SavedListView extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                                Expanded(
-                                  child: OutlinedButton(
+                              Expanded(
+                                flex: 0,
+                                child: OutlinedButton(
                                   onPressed: () {},
                                   child: Text(
                                     'Category',
@@ -199,11 +200,11 @@ class SavedListView extends StatelessWidget {
                                         .textTheme
                                         .bodyText2!
                                         .copyWith(
-                                          color: Colors.black87,
+                                          color: Theme.of(context).primaryColor,
                                         ),
                                   ),
-                              ),
-                                )
+                                ),
+                              )
                             ]),
                       )
                     ],
