@@ -1,4 +1,18 @@
-# recipe_api
+# :fork_and_knife: Recipe Mobile App
+
+## :package: Packages
+- Sizer - https://pub.dev/packages/sizer
+- Unicons - https://pub.dev/packages/unicons
+- Google_Fonts - https://pub.dev/packages/google_fonts
+- Cached_Network_Image - https://pub.dev/packages/cached_network_image
+
+##  :art: Design
+- The design is inspired by **Abdul Basit**
+  - https://dribbble.com/shots/15658336-Food-Recipe-App/attachments/7452318?mode=media
+- Font Family: OpenSans & Montserrat
+- Images are from:
+  - www.unsplash.com
+  - www.pexels.com
 
 A new Flutter application.
 
