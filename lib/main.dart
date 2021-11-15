@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   ThemeData buildThemeData() {
     return ThemeData(
-      primarySwatch: Colors.blue,
+      primaryColor: const Color(0xff084f57),
       textTheme: TextTheme(
         headline1: GoogleFonts.openSans(
           fontSize: 28.0,

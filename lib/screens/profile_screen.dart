@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
@@ -110,7 +111,13 @@ class ProfileHeader extends StatelessWidget {
       children: [
         Container(
           height: 140.0,
-          decoration: BoxDecoration(
+          decoration: BoxDecoration(color: Colors.grey.shade200,
+            shape: BoxShape.circle,
+            image: const DecorationImage(
+              image: CachedNetworkImageProvider(
+                  'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80'),
+              fit: BoxFit.fitHeight,
+            ),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
@@ -119,14 +126,6 @@ class ProfileHeader extends StatelessWidget {
                 offset: const Offset(0, 2),
               ),
             ],
-            shape: BoxShape.circle,
-            image: const DecorationImage(
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
-              image: NetworkImage(
-                'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80',
-              ),
-            ),
           ),
         ),
         const SizedBox(

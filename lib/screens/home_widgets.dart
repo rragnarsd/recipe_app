@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:recipe_api/screens/receipes_screen.dart';
 import 'package:recipe_api/screens/recipe_screen.dart';
 import 'package:recipe_api/utils/icon_list.dart';
+import 'package:recipe_api/widgets/network_image.dart';
 import 'package:recipe_api/widgets/search_field.dart';
 import 'package:unicons/unicons.dart';
 
 import '../utils/recipe_list.dart';
+import 'category_screen.dart';
 
 class HomeWidgets extends StatelessWidget {
   const HomeWidgets({Key? key}) : super(key: key);
@@ -16,43 +18,42 @@ class HomeWidgets extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: SingleChildScrollView(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 40.0,
-                ),
-                Text(
-                  'FoodRecipe',
-                  style: Theme.of(context).textTheme.headline1,
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                HomeHeaderRow(),
-                SizedBox(
-                  height: 20.0,
-                ),
-                SearchField(),
-                SizedBox(
-                  height: 40.0,
-                ),
-                HomeGrid(),
-                SizedBox(
-                  height: 40.0,
-                ),
-                Text(
-                  'Popular Recipes',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                HomePopularGrid(),
-                SizedBox(
-                  height: 10.0,
-                )
-              ]),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            SizedBox(
+              height: 40.0,
+            ),
+            Text(
+              'FoodRecipe',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            HomeHeaderRow(),
+            SizedBox(
+              height: 20.0,
+            ),
+            SearchField(),
+            SizedBox(
+              height: 40.0,
+            ),
+            HomeGrid(),
+            SizedBox(
+              height: 40.0,
+            ),
+            Text(
+              'Popular Recipes',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            HomePopularGrid(),
+            SizedBox(
+              height: 10.0,
+            )
+          ]),
         ),
       ),
     );
@@ -117,11 +118,11 @@ class HomePopularGrid extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const RecipeScreen(),
-                    settings: RouteSettings(
-                      arguments: popularRecipes[index],
-                    ),
-                ),  
+                  builder: (context) => const RecipeScreen(),
+                  settings: RouteSettings(
+                    arguments: popularRecipes[index],
+                  ),
+                ),
               );
             },
           );
@@ -150,13 +151,10 @@ class HomeStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
+        ReusableNetworkImage(
+          imageUrl: image,
           height: 350.0,
           width: 200.0,
-          child: Image.network(
-            image,
-            fit: BoxFit.cover,
-          ),
         ),
         Positioned(
           bottom: 10.0,
@@ -179,7 +177,7 @@ class HomeStack extends StatelessWidget {
                   const SizedBox(
                     height: 5.0,
                   ),
-                 const Spacer(),
+                  const Spacer(),
                   Row(
                     children: [
                       const Icon(UniconsLine.clock),
@@ -188,11 +186,14 @@ class HomeStack extends StatelessWidget {
                       ),
                       Text(
                         ' ${prepTime + cookTime} M Total',
-                        style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline3!
+                            .copyWith(color: Colors.black38),
                       ),
                     ],
                   ),
-                 const Spacer(),
+                  const Spacer(),
                   Row(
                     children: [
                       const Icon(UniconsLine.star),
@@ -201,7 +202,10 @@ class HomeStack extends StatelessWidget {
                       ),
                       Text(
                         recipeReview.toStringAsFixed(0),
-                        style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline3!
+                            .copyWith(color: Colors.black38),
                       ),
                     ],
                   ),
