@@ -7,7 +7,7 @@ class Recipe {
   final double recipeReview;
   final int recipeServing;
   final List recipeIngredients;
-  final List recipeMethod;
+  final String recipeMethod;
 
   Recipe(
       {required this.recipeCategory,

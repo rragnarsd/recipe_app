@@ -14,13 +14,13 @@ class ProfileScreen extends StatelessWidget {
           physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               SizedBox(
                 height: 40.0,
               ),
               Text(
                 'Profile',
-                style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w600),
+                style: Theme.of(context).textTheme.headline1,
               ),
               SizedBox(
                 height: 20.0,
@@ -80,7 +80,7 @@ class ProfileListTile extends StatelessWidget {
       margin: const EdgeInsets.all(5.0),
       elevation: 2.0,
       child: ListTile(
-        title: Text(text, style: const TextStyle(fontWeight: FontWeight.w600),),
+        title: Text(text, style: Theme.of(context).textTheme.headline3),
         horizontalTitleGap: 5.0,
         leading: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -131,14 +131,14 @@ class ProfileHeader extends StatelessWidget {
         const SizedBox(
           height: 10.0,
         ),
-        const Text(
+        Text(
           'Devina Hermawan',
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+          style: Theme.of(context).textTheme.headline4,
         ),
         const SizedBox(
           height: 5.0,
         ),
-        const Text('Email Address', style: TextStyle(fontSize: 16.0)),
+        Text('Email Address', style: Theme.of(context).textTheme.headline5),
       ],
     );
   }

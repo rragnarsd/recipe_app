@@ -21,6 +21,9 @@ class SearchField extends StatelessWidget {
             onPressed: () {},
           ),
           hintText: 'Search recipe here...',
+          hintStyle: Theme.of(context)
+            .textTheme
+            .bodyText2,
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(width: 1.0, color: Colors.white),
           ),

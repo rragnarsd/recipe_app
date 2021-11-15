@@ -14,19 +14,19 @@ class RecipesScreen extends StatelessWidget {
           physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               SizedBox(
                 height: 40.0,
               ),
               Text(
                 'Recipes',
-                style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w600),
+                style: Theme.of(context).textTheme.headline1,
               ),
               SizedBox(
                 height: 20.0,
               ),
               RecipesTabButtons(),
-               RecipesListView(),
+              RecipesListView(),
               SizedBox(
                 height: 10.0,
               ),
@@ -104,7 +104,6 @@ class RecipesListView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -114,11 +113,11 @@ class RecipesListView extends StatelessWidget {
           itemBuilder: (context, index) {
             var breakfast = ListOfRecipes().listOfBreakfast[index];
             return RecipesListItem(
-                imageUrl: breakfast.recipeImage,
-                recipeName: breakfast.recipeName,
-                prepTime: breakfast.prepTime,
-                cookTime: breakfast.cookTime,
-                recipeCategory: breakfast.recipeCategory,
+              imageUrl: breakfast.recipeImage,
+              recipeName: breakfast.recipeName,
+              prepTime: breakfast.prepTime,
+              cookTime: breakfast.cookTime,
+              recipeCategory: breakfast.recipeCategory,
             );
           }),
     );
@@ -168,10 +167,7 @@ class RecipesListItem extends StatelessWidget {
                 children: [
                   Text(
                     recipeName,
-                    style: const TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                   const SizedBox(
                     height: 5.0,
@@ -187,8 +183,8 @@ class RecipesListItem extends StatelessWidget {
                         width: 5.0,
                       ),
                       Text(
-                          '${prepTime.toStringAsFixed(0)} M Prep',
-                        style: const TextStyle(fontSize: 16.0),
+                        '${prepTime.toStringAsFixed(0)} M Prep',
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
                     ],
                   ),
@@ -207,7 +203,7 @@ class RecipesListItem extends StatelessWidget {
                       ),
                       Text(
                         '${cookTime.toStringAsFixed(0)} M Cook',
-                        style: const TextStyle(fontSize: 16.0),
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
                     ],
                   ),
@@ -230,7 +226,11 @@ class RecipesListItem extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           recipeCategory,
-                          style: const TextStyle(color: Colors.black87),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2!
+                              .copyWith(color: Colors.black87,
+                          ),
                         ),
                       )
                     ]),

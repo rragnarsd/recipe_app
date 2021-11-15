@@ -14,13 +14,13 @@ class SavedScreen extends StatelessWidget {
             physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 SizedBox(
                   height: 40.0,
                 ),
                 Text(
                   'Saved',
-                  style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w600),
+                  style: Theme.of(context).textTheme.headline1,
                 ),
                 SizedBox(
                   height: 20.0,
@@ -120,12 +120,9 @@ class SavedListView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Beef Steak',
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      style: Theme.of(context).textTheme.headline4,
                       ),
                       const SizedBox(
                         height: 5.0,
@@ -134,9 +131,9 @@ class SavedListView extends StatelessWidget {
                         children: [
                           Icon(UniconsLine.clock, size: 16.0, color: Colors.grey.shade500,),
                           const SizedBox(width: 5.0,),
-                          const Text(
+                          Text(
                             'Prep Time',
-                            style: TextStyle(fontSize: 16.0),
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ],
                       ),
@@ -147,9 +144,9 @@ class SavedListView extends StatelessWidget {
                         children: [
                           Icon(UniconsLine.clock, size: 16.0, color: Colors.grey.shade500,),
                           const SizedBox(width: 5.0,),
-                          const Text(
+                          Text(
                             'Cook Time',
-                            style: TextStyle(fontSize: 16.0),
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ],
                       ),
@@ -170,9 +167,13 @@ class SavedListView extends StatelessWidget {
                       ),
                       OutlinedButton(
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             'Category',
-                            style: TextStyle(color: Colors.black87),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText2!
+                                .copyWith(color: Colors.black87,
+                            ),
                           ),
                       )
                     ]),

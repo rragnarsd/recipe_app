@@ -52,13 +52,11 @@ class CategoryGridView extends StatelessWidget {
                     color: Colors.black.withOpacity(0.35),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        items[index].category,
-                        style: const TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
+                      child: Text(items[index].category,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline4!
+                              .copyWith(color: Colors.white),
                       ),
                     ),
                   ),

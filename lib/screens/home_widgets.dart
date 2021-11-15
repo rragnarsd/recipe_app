@@ -17,13 +17,13 @@ class HomeWidgets extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 SizedBox(
                   height: 40.0,
                 ),
                 Text(
                   'FoodRecipe',
-                  style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w600),
+                  style: Theme.of(context).textTheme.headline1,
                 ),
                 SizedBox(
                   height: 10.0,
@@ -42,7 +42,7 @@ class HomeWidgets extends StatelessWidget {
                 ),
                 Text(
                   'Popular Recipes',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+                  style: Theme.of(context).textTheme.headline4,
                 ),
                 SizedBox(
                   height: 20.0,
@@ -68,9 +68,9 @@ class HomeHeaderRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
+        Text(
           'Good Morning',
-          style: TextStyle(fontSize: 20.0),
+          style: Theme.of(context).textTheme.headline4,
         ),
         Container(
           width: 50.0,
@@ -159,7 +159,7 @@ class HomeStack extends StatelessWidget {
           right: 12.0,
           child: Container(
             width: 180.0,
-            height: 100.0,
+            height: 110.0,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),
@@ -170,28 +170,21 @@ class HomeStack extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                   const SizedBox(
                     height: 5.0,
                   ),
                   Text(
                     'Time $prepTime',
-                    style: const TextStyle(
-                      fontSize: 16.0,
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
                   ),
                   const SizedBox(
                     height: 5.0,
                   ),
                   Text(
                     'Stars: $recipeReview',
-                    style: const TextStyle(
-                      fontSize: 16.0,
-                    ),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
                   )
                 ],
               ),
@@ -262,7 +255,7 @@ class HomeGridItem extends StatelessWidget {
             ),
             Text(
               text,
-              style: const TextStyle(fontSize: 16.0),
+              style: Theme.of(context).textTheme.headline5,
             ),
           ],
         ),

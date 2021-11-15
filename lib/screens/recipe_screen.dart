@@ -59,12 +59,9 @@ class RecipeMethod extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Method',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).textTheme.headline4,
           ),
           const SizedBox(
             height: 10.0,
@@ -77,31 +74,8 @@ class RecipeMethod extends StatelessWidget {
               ),
               Expanded(
                 child: Text(
-                  popularRecipes.recipeMethod[0],
-                  style: const TextStyle(
-                    fontSize: 14.0,
-                    height: 1.2,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10.0,
-          ),
-          Row(
-            children: [
-              const Icon(UniconsLine.label),
-              const SizedBox(
-                width: 5.0,
-              ),
-              Expanded(
-                child: Text(
-                  popularRecipes.recipeMethod[1],
-                  style: const TextStyle(
-                    fontSize: 14.0,
-                    height: 1.2,
-                  ),
+                  popularRecipes.recipeMethod,
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),
             ],
@@ -135,10 +109,7 @@ class RecipeAbout extends StatelessWidget {
             children: [
               Text(
                 popularRecipes.recipeName,
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.headline4,
               ),
               Row(
                 children: const [
@@ -178,7 +149,7 @@ class RecipeAbout extends StatelessWidget {
                     width: 5.0,
                   ),
                   Text(
-                      '${popularRecipes.prepTime.toStringAsFixed(0)} M Prep Time'),
+                      '${popularRecipes.prepTime.toStringAsFixed(0)} M Prep Time', style: Theme.of(context).textTheme.bodyText2,),
                 ],
               ),
               Row(
@@ -188,7 +159,7 @@ class RecipeAbout extends StatelessWidget {
                     width: 5.0,
                   ),
                   Text(
-                      '${popularRecipes.cookTime.toStringAsFixed(0)} M Cook Time'),
+                      '${popularRecipes.cookTime.toStringAsFixed(0)} M Cook Time', style: Theme.of(context).textTheme.bodyText2,),
                 ],
               ),
             ],
@@ -202,7 +173,7 @@ class RecipeAbout extends StatelessWidget {
               const SizedBox(
                 width: 5.0,
               ),
-              Text('${popularRecipes.recipeServing} People Serving')
+              Text('${popularRecipes.recipeServing} People Serving', style: Theme.of(context).textTheme.bodyText2,),
             ],
           ),
           const SizedBox(
@@ -224,19 +195,16 @@ class RecipeIngredient extends StatelessWidget {
     final popularRecipes = ModalRoute.of(context)!.settings.arguments as Recipe;
     return Container(
       color: Colors.grey.shade200,
-      height: 140.0,
+      height: 150.0,
       width: MediaQuery.of(context).size.width / 1.1,
       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Ingredients',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w600,
-              ),
+            style: Theme.of(context).textTheme.headline4,
             ),
             const SizedBox(
               height: 10.0,
@@ -250,7 +218,7 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[0]),
+                    Text(popularRecipes.recipeIngredients[0], style: Theme.of(context).textTheme.bodyText2,),
                   ],
                 ),
                 Row(
@@ -259,7 +227,7 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[1]),
+                    Text(popularRecipes.recipeIngredients[1], style: Theme.of(context).textTheme.bodyText2,),
                   ],
                 ),
                 Row(
@@ -268,7 +236,7 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[2]),
+                    Text(popularRecipes.recipeIngredients[2], style: Theme.of(context).textTheme.bodyText2,),
                   ],
                 ),
                 Row(
@@ -277,7 +245,7 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[3]),
+                    Text(popularRecipes.recipeIngredients[3], style: Theme.of(context).textTheme.bodyText2,),
                   ],
                 ),
               ],
