@@ -130,7 +130,12 @@ class RecipeAbout extends StatelessWidget {
           ),
           OutlinedButton(
             onPressed: () {},
-            child: Text(popularRecipes.recipeCategory),
+            child: Text(
+              popularRecipes.recipeCategory,
+              style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                    color: Colors.black87,
+                  ),
+            ),
           ),
           const SizedBox(
             height: 10.0,
@@ -149,7 +154,9 @@ class RecipeAbout extends StatelessWidget {
                     width: 5.0,
                   ),
                   Text(
-                      '${popularRecipes.prepTime.toStringAsFixed(0)} M Prep Time', style: Theme.of(context).textTheme.bodyText2,),
+                    '${popularRecipes.prepTime.toStringAsFixed(0)} M Prep Time',
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
                 ],
               ),
               Row(
@@ -159,7 +166,9 @@ class RecipeAbout extends StatelessWidget {
                     width: 5.0,
                   ),
                   Text(
-                      '${popularRecipes.cookTime.toStringAsFixed(0)} M Cook Time', style: Theme.of(context).textTheme.bodyText2,),
+                    '${popularRecipes.cookTime.toStringAsFixed(0)} M Cook Time',
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
                 ],
               ),
             ],
@@ -173,7 +182,10 @@ class RecipeAbout extends StatelessWidget {
               const SizedBox(
                 width: 5.0,
               ),
-              Text('${popularRecipes.recipeServing} People Serving', style: Theme.of(context).textTheme.bodyText2,),
+              Text(
+                '${popularRecipes.recipeServing} People Serving',
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
             ],
           ),
           const SizedBox(
@@ -204,7 +216,7 @@ class RecipeIngredient extends StatelessWidget {
           children: [
             Text(
               'Ingredients',
-            style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline4,
             ),
             const SizedBox(
               height: 10.0,
@@ -218,7 +230,10 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[0], style: Theme.of(context).textTheme.bodyText2,),
+                    Text(
+                      popularRecipes.recipeIngredients[0],
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   ],
                 ),
                 Row(
@@ -227,7 +242,10 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[1], style: Theme.of(context).textTheme.bodyText2,),
+                    Text(
+                      popularRecipes.recipeIngredients[1],
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   ],
                 ),
                 Row(
@@ -236,7 +254,10 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[2], style: Theme.of(context).textTheme.bodyText2,),
+                    Text(
+                      popularRecipes.recipeIngredients[2],
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   ],
                 ),
                 Row(
@@ -245,7 +266,10 @@ class RecipeIngredient extends StatelessWidget {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    Text(popularRecipes.recipeIngredients[3], style: Theme.of(context).textTheme.bodyText2,),
+                    Text(
+                      popularRecipes.recipeIngredients[3],
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   ],
                 ),
               ],

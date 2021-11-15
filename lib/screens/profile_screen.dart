@@ -84,11 +84,12 @@ class ProfileListTile extends StatelessWidget {
         horizontalTitleGap: 5.0,
         leading: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Icon(icon),
+          child: Icon(icon, color: Theme.of(context).iconTheme.color),
         ),
-        trailing: const Icon(
+        trailing: Icon(
           UniconsLine.angle_right,
           size: 30.0,
+          color: Theme.of(context).iconTheme.color,
         ),
         onTap: () {},
       ),

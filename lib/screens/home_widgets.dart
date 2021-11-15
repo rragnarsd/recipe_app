@@ -3,6 +3,7 @@ import 'package:recipe_api/screens/receipes_screen.dart';
 import 'package:recipe_api/screens/recipe_screen.dart';
 import 'package:recipe_api/utils/icon_list.dart';
 import 'package:recipe_api/widgets/search_field.dart';
+import 'package:unicons/unicons.dart';
 
 import '../utils/recipe_list.dart';
 
@@ -107,8 +108,9 @@ class HomePopularGrid extends StatelessWidget {
               child: HomeStack(
                 image: popularRecipes[index].recipeImage,
                 text: popularRecipes[index].recipeName,
-                prepTime: popularRecipes[index].prepTime.toString(),
-                recipeReview: popularRecipes[index].recipeReview.toString(),
+                prepTime: popularRecipes[index].prepTime,
+                cookTime: popularRecipes[index].cookTime,
+                recipeReview: popularRecipes[index].recipeReview,
               ),
             ),
             onTap: () {
@@ -119,7 +121,7 @@ class HomePopularGrid extends StatelessWidget {
                     settings: RouteSettings(
                       arguments: popularRecipes[index],
                     ),
-                ),
+                ),  
               );
             },
           );
@@ -132,13 +134,15 @@ class HomePopularGrid extends StatelessWidget {
 class HomeStack extends StatelessWidget {
   final String image;
   final String text;
-  final String prepTime;
-  final String recipeReview;
+  final double prepTime;
+  final double cookTime;
+  final double recipeReview;
   const HomeStack({
     Key? key,
     required this.image,
     required this.text,
     required this.prepTime,
+    required this.cookTime,
     required this.recipeReview,
   }) : super(key: key);
 
@@ -175,17 +179,32 @@ class HomeStack extends StatelessWidget {
                   const SizedBox(
                     height: 5.0,
                   ),
-                  Text(
-                    'Time $prepTime',
-                    style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
+                 const Spacer(),
+                  Row(
+                    children: [
+                      const Icon(UniconsLine.clock),
+                      const SizedBox(
+                        width: 5.0,
+                      ),
+                      Text(
+                        ' ${prepTime + cookTime} M Total',
+                        style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 5.0,
+                 const Spacer(),
+                  Row(
+                    children: [
+                      const Icon(UniconsLine.star),
+                      const SizedBox(
+                        width: 5.0,
+                      ),
+                      Text(
+                        recipeReview.toStringAsFixed(0),
+                        style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
+                      ),
+                    ],
                   ),
-                  Text(
-                    'Stars: $recipeReview',
-                    style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.black38),
-                  )
                 ],
               ),
             ),
