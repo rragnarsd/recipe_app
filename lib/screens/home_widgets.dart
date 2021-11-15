@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:recipe_app/screens/receipes_screen.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
 import 'package:recipe_app/utils/icon_list.dart';
 import 'package:recipe_app/widgets/network_image.dart';
 import 'package:recipe_app/widgets/profile_image.dart';
 import 'package:recipe_app/widgets/search_field.dart';
+import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
 import '../utils/recipe_list.dart';
@@ -24,10 +26,25 @@ class HomeWidgets extends StatelessWidget {
             const SizedBox(
               height: 40.0,
             ),
-            Text(
-              'FoodRecipe',
-              style: Theme.of(context).textTheme.headline1,
-            ),
+                RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style,
+                    children: <TextSpan>[
+                      TextSpan(text: 'Food', style: GoogleFonts.montserrat(
+                        fontSize: 22.0.sp,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.0,
+                        color: Colors.black87,
+                      ),),
+                      TextSpan(text: 'Recipe', style: GoogleFonts.montserrat(
+                        fontSize: 22.0.sp,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.0,
+                        color: Theme.of(context).primaryColor,
+                      ),),
+                    ],
+                  ),
+                ),
             const SizedBox(
               height: 10.0,
             ),
@@ -72,10 +89,12 @@ class HomeHeaderRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Good Morning',
+          'Good Morning, Devina',
           style: Theme.of(context).textTheme.headline4,
         ),
-        const Spacer(flex: 3,),
+        const Spacer(
+          flex: 3,
+        ),
         const Expanded(
           child: ProfileImage(
               height: 50.0,

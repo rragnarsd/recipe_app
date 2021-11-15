@@ -57,3 +57,12 @@ List<Recipe> popularRecipes = [
   Recipe(recipeCategory: 'Snack', recipeName: 'Apple Chips', recipeImage: 'https://images.pexels.com/photos/8963959/pexels-photo-8963959.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500', prepTime: 15.0, cookTime: 180.0, recipeServing: 4, recipeIngredients: ['2 apples', '1/4 cup Italian dressing', '1/2 teaspoon ground cinnamon', '1 1/2 teaspoon sugar'], recipeMethod: 'Place the apple slices flat on a baking sheet, being careful not to overlap them. Sprinkle with cinnamon and sugar. Bake for 1 hour, flip the pieces over, bake for 1 more hour. Let cool in the oven for 1 hour.', recipeReview: 15),
   Recipe(recipeCategory: 'Desert', recipeName: 'Mousse', recipeImage: 'https://images.pexels.com/photos/1707920/pexels-photo-1707920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', prepTime: 20.0, cookTime: 0.0, recipeServing: 2, recipeIngredients: ['1/4 cup chocolate chips', '1 tbsp water', '1 large egg yolk', '1/2 tbsp vanilla extract', '1/2 whipping cream', '1 tbsp sugar'], recipeMethod: 'In a small saucepan, melt chocolate chips with water; stir until smooth. Stir a small amount of hot chocolate mixture into egg yolk; return all to the pan, stirring constantly. Cook and stir for 2 minutes or until slightly thickened. Remove from the heat; stir in vanilla. Quickly transfer to a small bowl. Stir occasionally until completely cooled.', recipeReview: 84),
 ];
+
+var combinedLists = [
+  ListOfRecipes().listOfBreakfast,
+  ListOfRecipes().listOfLunch,
+  ListOfRecipes().listOfDinner,
+  ListOfRecipes().listOfSnack,
+  ListOfRecipes().listOfDesert,
+  ListOfRecipes().listOfBeverage
+];

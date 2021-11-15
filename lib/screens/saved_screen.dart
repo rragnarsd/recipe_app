@@ -195,6 +195,7 @@ class SavedListItem extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
                         onPressed: () {},
