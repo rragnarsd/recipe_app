@@ -56,6 +56,8 @@ class MyApp extends StatelessWidget {
         headline5: GoogleFonts.openSans(fontSize: 16.0, letterSpacing: 1.0),
       ),
       splashColor: const Color(0xff1651DA),
+      iconTheme: const IconThemeData(color: Color(0xff084f57),
+      )
     );
   }
 }

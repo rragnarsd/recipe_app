@@ -39,7 +39,7 @@ class _CustomNavBarState extends State<CustomNavBar>
         onTap: _onItemTapped,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedItemColor: Colors.grey.shade900,
+        selectedItemColor: Theme.of(context).iconTheme.color,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
