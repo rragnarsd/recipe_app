@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_api/utils/recipe_list.dart';
+import 'package:recipe_app/utils/recipe_list.dart';
+import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
 class RecipesScreen extends StatelessWidget {
@@ -15,20 +16,20 @@ class RecipesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 40.0,
+              SizedBox(
+                height: 6.0.h,
               ),
               Text(
                 'Recipes',
                 style: Theme.of(context).textTheme.headline1,
               ),
-              const SizedBox(
-                height: 20.0,
+               SizedBox(
+                height: 4.0.h,
               ),
               const RecipesTabButtons(),
               const RecipesListView(),
-              const SizedBox(
-                height: 10.0,
+               SizedBox(
+                height: 2.0.h,
               ),
             ],
           ),
@@ -45,56 +46,53 @@ class RecipesTabButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return  Row(
       children: [
         Expanded(
           child: SizedBox(
-            height: 40.0,
+            height: 6.0.h,
             width: MediaQuery.of(context).size.width,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
+                const TabButton(text: 'Filter'),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width / 3.3,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Filter',
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                  ),
+                  width: 2.0.h,
                 ),
-                const SizedBox(
-                  width: 10.0,
-                ),
+                const TabButton(text: 'Sort'),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width / 3.3,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Sort',
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                  ),
+                  width: 2.0.h,
                 ),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 3.3,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Category',
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                  ),
-                )
+                const TabButton(text: 'Category'),
               ],
             ),
           ),
         )
       ],
+    );
+  }
+}
+
+class TabButton extends StatelessWidget {
+  final String text;
+  const TabButton({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width / 3.3,
+      child: OutlinedButton(
+        onPressed: () {},
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+      ),
     );
   }
 }
@@ -145,21 +143,22 @@ class RecipesListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: SizedBox(
-        height: 120.0,
-        child: Container(
-          decoration: BoxDecoration(color: Colors.grey.shade200),
+        height: 20.0.h,
+        child: Material(
+          color: Colors.white,
+          elevation: 2.0,
           child: Row(
             children: [
               SizedBox(
-                height: 120.0,
-                width: 140.0,
+                height: 20.0.h,
+                width: 20.0.h,
                 child: Image.network(
                   imageUrl,
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(
-                width: 15.0,
+              SizedBox(
+                width: 2.0.h,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -169,8 +168,8 @@ class RecipesListItem extends StatelessWidget {
                     recipeName,
                     style: Theme.of(context).textTheme.headline4,
                   ),
-                  const SizedBox(
-                    height: 5.0,
+                   SizedBox(
+                    height: 1.5.h,
                   ),
                   Row(
                     children: [
@@ -179,8 +178,8 @@ class RecipesListItem extends StatelessWidget {
                         size: 16.0,
                         color: Colors.grey.shade500,
                       ),
-                      const SizedBox(
-                        width: 5.0,
+                       SizedBox(
+                        width: 1.5.w,
                       ),
                       Text(
                         '${prepTime.toStringAsFixed(0)} M Prep',
@@ -188,8 +187,8 @@ class RecipesListItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 5.0,
+                   SizedBox(
+                    height: 1.0.h,
                   ),
                   Row(
                     children: [
@@ -198,8 +197,8 @@ class RecipesListItem extends StatelessWidget {
                         size: 16.0,
                         color: Colors.grey.shade500,
                       ),
-                      const SizedBox(
-                        width: 5.0,
+                      SizedBox(
+                        width: 1.5.w,
                       ),
                       Text(
                         '${cookTime.toStringAsFixed(0)} M Cook',
@@ -217,9 +216,9 @@ class RecipesListItem extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(
+                        icon: Icon(
                           UniconsLine.bookmark,
-                          size: 30.0,
+                          size: 22.0.sp,
                         ),
                       ),
                       OutlinedButton(
@@ -228,7 +227,7 @@ class RecipesListItem extends StatelessWidget {
                           recipeCategory,
                           style:
                               Theme.of(context).textTheme.bodyText2!.copyWith(
-                                    color: Colors.black87,
+                                color: Theme.of(context).primaryColor,
                                   ),
                         ),
                       )

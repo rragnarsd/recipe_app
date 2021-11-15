@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_api/utils/category_list.dart';
-import 'package:recipe_api/widgets/network_image.dart';
+import 'package:recipe_app/utils/category_list.dart';
+import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
 class SavedScreen extends StatelessWidget {
@@ -16,20 +16,20 @@ class SavedScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 40.0,
+              SizedBox(
+                height: 6.0.h,
               ),
               Text(
                 'Saved',
                 style: Theme.of(context).textTheme.headline1,
               ),
-              const SizedBox(
-                height: 20.0,
+              SizedBox(
+                height: 4.0.h,
               ),
               const SavedTabButtons(),
               const SavedListView(),
-              const SizedBox(
-                height: 10.0,
+              SizedBox(
+                height: 2.0.h,
               ),
             ],
           ),
@@ -50,20 +50,20 @@ class SavedTabButtons extends StatelessWidget {
       children: [
         Expanded(
           child: SizedBox(
-            height: 40.0,
+            height: 6.0.h,
             width: MediaQuery.of(context).size.width,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: const [
-                TabButton(text: 'Filter'),
+              children: [
+                const TabButton(text: 'Filter'),
                 SizedBox(
-                  width: 10.0,
+                  width: 2.0.h,
                 ),
-                TabButton(text: 'Sort'),
+                const TabButton(text: 'Sort'),
                 SizedBox(
-                  width: 10.0,
+                  width: 2.0.h,
                 ),
-                TabButton(text: 'Category'),
+                const TabButton(text: 'Category'),
               ],
             ),
           ),
@@ -89,7 +89,7 @@ class TabButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
-            color: Theme.of(context).primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
         ),
       ),
@@ -109,110 +109,116 @@ class SavedListView extends StatelessWidget {
       child: ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 15.0),
-              child: SizedBox(
-                height: 120.0,
-                child: Material(
-                  color: Colors.white,
-                  elevation: 2.0,
-                  child: Row(
-                    children: [
-                      const ReusableNetworkImage(
-                        imageUrl:
-                            'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1706&q=80',
-                        height: 120.0,
-                        width: 120.0,
-                      ),
-                      const SizedBox(
-                        width: 15.0,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Beef Steak',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                          const SizedBox(
-                            height: 5.0,
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                UniconsLine.clock,
-                                size: 16.0,
-                                color: Colors.grey.shade500,
-                              ),
-                              const SizedBox(
-                                width: 5.0,
-                              ),
-                              Text(
-                                'Prep Time',
-                                style: Theme.of(context).textTheme.bodyText2,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5.0,
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                UniconsLine.clock,
-                                size: 16.0,
-                                color: Colors.grey.shade500,
-                              ),
-                              const SizedBox(
-                                width: 5.0,
-                              ),
-                              Text(
-                                'Cook Time',
-                                style: Theme.of(context).textTheme.bodyText2,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Expanded(
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    UniconsLine.bookmark,
-                                    size: 30.0,
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 0,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Category',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2!
-                                        .copyWith(
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                  ),
-                                ),
-                              )
-                            ]),
-                      )
-                    ],
-                  ),
+            return const SavedListItem();
+          }),
+    );
+  }
+}
+
+class SavedListItem extends StatelessWidget {
+  const SavedListItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: SizedBox(
+        height: 20.0.h,
+        child: Material(
+          color: Colors.white,
+          elevation: 2.0,
+          child: Row(
+            children: [
+              SizedBox(
+                height: 20.0.h,
+                width: 20.0.h,
+                child: Image.network(
+                  'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80',
+                  fit: BoxFit.cover,
                 ),
               ),
-            );
-          }),
+              SizedBox(
+                width: 2.0.h,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Name',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  SizedBox(
+                    height: 1.5.h,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        UniconsLine.clock,
+                        size: 16.0,
+                        color: Colors.grey.shade500,
+                      ),
+                      SizedBox(
+                        width: 1.5.w,
+                      ),
+                      Text(
+                        'M Prep',
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 1.0.h,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        UniconsLine.clock,
+                        size: 16.0,
+                        color: Colors.grey.shade500,
+                      ),
+                      SizedBox(
+                        width: 1.5.w,
+                      ),
+                      Text(
+                        'M Cook',
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          UniconsLine.bookmark,
+                          size: 22.0.sp,
+                        ),
+                      ),
+                      OutlinedButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Category',
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                        ),
+                      )
+                    ]),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

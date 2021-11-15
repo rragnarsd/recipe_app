@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_api/models/food.dart';
+import 'package:recipe_app/models/food.dart';
 import 'package:unicons/unicons.dart';
 
 class RecipeScreen extends StatelessWidget {
@@ -12,7 +12,7 @@ class RecipeScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 1.1,
+          height: MediaQuery.of(context).size.height * 1.25,
           width: MediaQuery.of(context).size.width,
           child: Stack(clipBehavior: Clip.none, children: [
             CachedNetworkImage(

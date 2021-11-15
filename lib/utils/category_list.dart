@@ -1,4 +1,4 @@
-import 'package:recipe_api/models/category_items.dart';
+import 'package:recipe_app/models/category_items.dart';
 
 List<CategoryItems> items = [
   CategoryItems(image: 'https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', category: 'Breakfast'),

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_api/screens/receipes_screen.dart';
-import 'package:recipe_api/screens/recipe_screen.dart';
-import 'package:recipe_api/utils/icon_list.dart';
-import 'package:recipe_api/widgets/network_image.dart';
-import 'package:recipe_api/widgets/profile_image.dart';
-import 'package:recipe_api/widgets/search_field.dart';
+import 'package:recipe_app/screens/receipes_screen.dart';
+import 'package:recipe_app/screens/recipe_screen.dart';
+import 'package:recipe_app/utils/icon_list.dart';
+import 'package:recipe_app/widgets/network_image.dart';
+import 'package:recipe_app/widgets/profile_image.dart';
+import 'package:recipe_app/widgets/search_field.dart';
 import 'package:unicons/unicons.dart';
 
 import '../utils/recipe_list.dart';
@@ -201,7 +201,7 @@ class HomeStack extends StatelessWidget {
                           width: 5.0,
                         ),
                         Text(
-                          ' ${prepTime + cookTime} M Total',
+                          '${prepTime + cookTime} M Total',
                           style: Theme.of(context)
                               .textTheme
                               .headline3!
@@ -288,7 +288,7 @@ class HomeGridItem extends StatelessWidget {
               ),
               Text(
                 text,
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             ],
           ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_api/screens/category_screen.dart';
-import 'package:recipe_api/screens/home_widgets.dart';
-import 'package:recipe_api/screens/profile_screen.dart';
-import 'package:recipe_api/screens/saved_screen.dart';
+import 'package:recipe_app/screens/category_screen.dart';
+import 'package:recipe_app/screens/home_widgets.dart';
+import 'package:recipe_app/screens/profile_screen.dart';
+import 'package:recipe_app/screens/saved_screen.dart';
+import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
 class CustomNavBar extends StatefulWidget {
@@ -33,11 +34,13 @@ class _CustomNavBarState extends State<CustomNavBar>
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey.shade300,
-        elevation: 0.0,
+        backgroundColor: Colors.white,
+        elevation: 4.0,
         currentIndex: selectedIndex,
         onTap: _onItemTapped,
         showSelectedLabels: true,
+        selectedFontSize: 10.0.sp,
+        iconSize: 18.sp,
         showUnselectedLabels: true,
         selectedItemColor: Theme.of(context).iconTheme.color,
         type: BottomNavigationBarType.fixed,

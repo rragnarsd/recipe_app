@@ -1,4 +1,4 @@
-import 'package:recipe_api/models/food.dart';
+import 'package:recipe_app/models/food.dart';
 
 class ListOfRecipes {
   List<Recipe> listOfBreakfast = [

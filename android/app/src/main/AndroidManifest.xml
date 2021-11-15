@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.recipe_api">
    <application
-        android:label="recipe_api"
+        android:label="recipe_app"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

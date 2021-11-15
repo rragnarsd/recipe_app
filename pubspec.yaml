@@ -1,4 +1,4 @@
-name: recipe_api
+name: recipe_app
 description: A new Flutter application.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -17,6 +17,7 @@ dependencies:
   unicons: ^2.0.2
   google_fonts: ^2.1.0
   cached_network_image: ^3.1.0+1
+  sizer: ^2.0.15
 
 dev_dependencies:
   flutter_test:
