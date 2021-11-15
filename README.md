@@ -13,6 +13,10 @@
 - Images are from:
   - www.unsplash.com
   - www.pexels.com
+- The Icons which are used on the HomePage (GridView) are from FlatIcon:
+  - <div>Icons made by <a href="https://www.flaticon.com/authors/hajicon" title="HAJICON">HAJICON</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  - <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  - <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 A new Flutter application.
 
