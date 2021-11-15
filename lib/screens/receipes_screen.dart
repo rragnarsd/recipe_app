@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/utils/utils.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe_app/provider/recipe_provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -8,6 +9,7 @@ class RecipesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categoryName = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
@@ -20,17 +22,14 @@ class RecipesScreen extends StatelessWidget {
                 height: 6.0.h,
               ),
               Text(
-                'Recipes',
+                  categoryName,
                 style: Theme.of(context).textTheme.headline1,
               ),
-               SizedBox(
+              SizedBox(
                 height: 4.0.h,
               ),
               const RecipesTabButtons(),
               const RecipesListView(),
-               SizedBox(
-                height: 2.0.h,
-              ),
             ],
           ),
         ),
@@ -46,7 +45,7 @@ class RecipesTabButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
         Expanded(
           child: SizedBox(
@@ -89,8 +88,8 @@ class RecipesTabButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
-            color: Theme.of(context).primaryColor,
-          ),
+                color: Theme.of(context).primaryColor,
+              ),
         ),
       ),
     );
@@ -104,19 +103,22 @@ class RecipesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final recipesProvider = Provider.of<ListOfRecipes>(context, listen: false);
+    final categoryName = ModalRoute.of(context)!.settings.arguments as String;
+    final recipeList = recipesProvider.findByCategory(categoryName);
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: MediaQuery.of(context).size.height * 1.2,
       child: ListView.builder(
-          itemCount: ListOfRecipes().listOfBreakfast.length,
+          itemCount: recipeList.length,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
           itemBuilder: (context, index) {
-            var breakfast = ListOfRecipes().listOfBreakfast[index];
             return RecipesListItem(
-              imageUrl: breakfast.recipeImage,
-              recipeName: breakfast.recipeName,
-              prepTime: breakfast.prepTime,
-              cookTime: breakfast.cookTime,
-              recipeCategory: breakfast.recipeCategory,
+              imageUrl: recipeList[index].recipeImage,
+              recipeName: recipeList[index].recipeName,
+              prepTime: recipeList[index].prepTime,
+              cookTime: recipeList[index].cookTime,
+              recipeCategory: recipeList[index].recipeCategory,
             );
           }),
     );
@@ -169,7 +171,7 @@ class RecipesListItem extends StatelessWidget {
                     recipeName,
                     style: Theme.of(context).textTheme.headline4,
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 1.5.h,
                   ),
                   Row(
@@ -179,7 +181,7 @@ class RecipesListItem extends StatelessWidget {
                         size: 16.0,
                         color: Colors.grey.shade500,
                       ),
-                       SizedBox(
+                      SizedBox(
                         width: 1.5.w,
                       ),
                       Text(
@@ -188,7 +190,7 @@ class RecipesListItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 1.0.h,
                   ),
                   Row(
@@ -229,12 +231,13 @@ class RecipesListItem extends StatelessWidget {
                           recipeCategory,
                           style:
                               Theme.of(context).textTheme.bodyText2!.copyWith(
-                                color: Theme.of(context).primaryColor,
+                                    color: Theme.of(context).primaryColor,
                                   ),
                         ),
                       )
                     ]),
-              )
+              ),
+              SizedBox(height: 40.0,)
             ],
           ),
         ),

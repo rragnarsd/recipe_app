@@ -69,7 +69,7 @@ class CategoryGridView extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const RecipesScreen(),
-                  settings: RouteSettings(arguments: items[index]),
+                  settings: RouteSettings(arguments: items[index].category),
                 ),
               ),
             );

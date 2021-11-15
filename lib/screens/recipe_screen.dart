@@ -12,7 +12,7 @@ class RecipeScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 1.15,
+          height: MediaQuery.of(context).size.height * 1.20,
           width: MediaQuery.of(context).size.width,
           child: Stack(clipBehavior: Clip.none, children: [
             CachedNetworkImage(
