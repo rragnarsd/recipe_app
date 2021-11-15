@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/screens/receipes_screen.dart';
-import 'package:recipe_app/utils/category_list.dart';
-import 'package:recipe_app/widgets/network_image.dart';
+import 'screens.dart';
+import 'package:recipe_app/utils/utils.dart';
+import 'package:recipe_app/widgets/widgets.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key? key}) : super(key: key);

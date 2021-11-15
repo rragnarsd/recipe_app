@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/models/food.dart';
+import 'package:recipe_app/models/models.dart';
 import 'package:unicons/unicons.dart';
 
 class RecipeScreen extends StatelessWidget {

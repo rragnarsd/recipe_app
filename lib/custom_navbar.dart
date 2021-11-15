@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/screens/category_screen.dart';
-import 'package:recipe_app/screens/home_widgets.dart';
-import 'package:recipe_app/screens/profile_screen.dart';
-import 'package:recipe_app/screens/saved_screen.dart';
+import 'package:recipe_app/screens/screens.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -24,7 +21,7 @@ class _CustomNavBarState extends State<CustomNavBar>
   }
 
   static List<Widget> pages = [
-    const HomeWidgets(),
+    const HomeScreen(),
     const CategoryScreen(),
     const SavedScreen(),
     const ProfileScreen(),

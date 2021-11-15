@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/utils/recipe_list.dart';
+import 'package:recipe_app/utils/utils.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -55,15 +55,15 @@ class RecipesTabButtons extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                const TabButton(text: 'Filter'),
+                const RecipesTabButton(text: 'Filter'),
                 SizedBox(
                   width: 2.0.h,
                 ),
-                const TabButton(text: 'Sort'),
+                const RecipesTabButton(text: 'Sort'),
                 SizedBox(
                   width: 2.0.h,
                 ),
-                const TabButton(text: 'Category'),
+                const RecipesTabButton(text: 'Category'),
               ],
             ),
           ),
@@ -73,9 +73,9 @@ class RecipesTabButtons extends StatelessWidget {
   }
 }
 
-class TabButton extends StatelessWidget {
+class RecipesTabButton extends StatelessWidget {
   final String text;
-  const TabButton({
+  const RecipesTabButton({
     Key? key,
     required this.text,
   }) : super(key: key);

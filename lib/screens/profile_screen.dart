@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/widgets/profile_image.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
+import 'package:recipe_app/widgets/widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);

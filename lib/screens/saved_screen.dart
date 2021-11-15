@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/utils/category_list.dart';
+import 'package:recipe_app/utils/utils.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
