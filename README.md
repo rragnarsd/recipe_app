@@ -1,4 +1,22 @@
-# recipe_api
+# :fork_and_knife: Recipe Mobile App
+
+## :package: Packages
+- Sizer - https://pub.dev/packages/sizer
+- Unicons - https://pub.dev/packages/unicons
+- Google_Fonts - https://pub.dev/packages/google_fonts
+- Cached_Network_Image - https://pub.dev/packages/cached_network_image
+
+##  :art: Design
+- The design is inspired by **Abdul Basit**
+  - https://dribbble.com/shots/15658336-Food-Recipe-App/attachments/7452318?mode=media
+- Font Family: OpenSans & Montserrat
+- Images are from:
+  - www.unsplash.com
+  - www.pexels.com
+- The Icons which are used on the HomePage (GridView) are from FlatIcon:
+  - <div>Icons made by <a href="https://www.flaticon.com/authors/hajicon" title="HAJICON">HAJICON</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  - <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  - <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 A new Flutter application.
 
