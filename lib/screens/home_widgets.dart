@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_api/screens/receipes_screen.dart';
 import 'package:recipe_api/screens/recipe_screen.dart';
 import 'package:recipe_api/utils/icon_list.dart';
 import 'package:recipe_api/widgets/network_image.dart';
+import 'package:recipe_api/widgets/profile_image.dart';
 import 'package:recipe_api/widgets/search_field.dart';
 import 'package:unicons/unicons.dart';
 
@@ -73,17 +75,13 @@ class HomeHeaderRow extends StatelessWidget {
           'Good Morning',
           style: Theme.of(context).textTheme.headline4,
         ),
-        Container(
-          width: 50.0,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey.shade200,
-          ),
-          child: Image.asset(
-            'assets/cake.png',
-            fit: BoxFit.cover,
-          ),
-        )
+        const Spacer(flex: 3,),
+        const Expanded(
+          child: ProfileImage(
+              height: 50.0,
+              image:
+                  'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80'),
+        ),
       ],
     );
   }
