@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/models/food.dart';
 import 'package:recipe_app/models/saved_recipes.dart';
 import 'package:recipe_app/provider/recipe_provider.dart';
 import 'package:recipe_app/provider/saved_provider.dart';
@@ -110,7 +111,7 @@ class RecipesListView extends StatelessWidget {
     final recipesProvider = Provider.of<ListOfRecipes>(context, listen: false);
     final categoryName = ModalRoute.of(context)!.settings.arguments as String;
     final recipeList = recipesProvider.findByCategory(categoryName);
-
+    final Recipe recipe;
     //id og para við provider
     return SizedBox(
       height: MediaQuery.of(context).size.height * 1.2,
@@ -119,152 +120,118 @@ class RecipesListView extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return InkWell(
-              child: RecipesListItem(
-                recipeId: recipeList[index].toString(),
-                imageUrl: recipeList[index].recipeImage,
-                recipeName: recipeList[index].recipeName,
-                prepTime: recipeList[index].prepTime,
-                cookTime: recipeList[index].cookTime,
-                recipeCategory: recipeList[index].recipeCategory,
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RecipeScreen(),
-                    settings: RouteSettings(arguments: recipeList[index]),
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: SizedBox(
+                height: 20.0.h,
+                child: Material(
+                  color: Colors.white,
+                  elevation: 2.0,
+                  child: Row(
+                    children: [
+                      ReusableNetworkImage(
+                        height: 20.0.h,
+                        width: 20.0.h,
+                        imageUrl: recipeList[index].recipeImage,
+                      ),
+                      SizedBox(
+                        width: 2.0.h,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            recipeList[index].recipeName,
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                          SizedBox(
+                            height: 1.5.h,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                UniconsLine.clock,
+                                size: 16.0,
+                                color: Colors.grey.shade500,
+                              ),
+                              SizedBox(
+                                width: 1.5.w,
+                              ),
+                              Text(
+                                '${recipeList[index].prepTime.toStringAsFixed(0)} M Prep',
+                                style: Theme.of(context).textTheme.bodyText2,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 1.0.h,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                UniconsLine.clock,
+                                size: 16.0,
+                                color: Colors.grey.shade500,
+                              ),
+                              SizedBox(
+                                width: 1.5.w,
+                              ),
+                              Text(
+                                '${recipeList[index].cookTime.toStringAsFixed(0)} M Cook',
+                                style: Theme.of(context).textTheme.bodyText2,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  context.read<SavedProvider>().addRecipe(SavedRecipes(
+                                      recipeId: recipeList[index].recipeId.toString(),
+                                      recipeCategory: recipeList[index].recipeCategory,
+                                      recipeName: recipeList[index].recipeName,
+                                      recipeImage: recipeList[index].recipeImage,
+                                      prepTime: recipeList[index].prepTime,
+                                      cookTime: recipeList[index].cookTime,
+                                  ),
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.bookmark_border,
+                                  size: 22.0.sp,
+                                ),
+                              ),
+                              OutlinedButton(
+                                onPressed: () {},
+                                child: Text(
+                                  recipeList[index].recipeCategory,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText2!
+                                      .copyWith(
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                ),
+                              )
+                            ]),
+                      ),
+                      const SizedBox(
+                        height: 40.0,
+                      )
+                    ],
                   ),
-                );
-              },
+                ),
+              ),
             );
           }),
-    );
-  }
-}
-
-class RecipesListItem extends StatelessWidget {
-  const RecipesListItem({
-    Key? key,
-    required this.recipeId,
-    required this.imageUrl,
-    required this.recipeName,
-    required this.prepTime,
-    required this.cookTime,
-    required this.recipeCategory,
-  }) : super(key: key);
-
-  final String recipeId;
-  final String imageUrl;
-  final String recipeName;
-  final double prepTime;
-  final double cookTime;
-  final String recipeCategory;
-
-  @override
-  Widget build(BuildContext context) {
-    final savedProvider = Provider.of<SavedProvider>(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: SizedBox(
-        height: 20.0.h,
-        child: Material(
-          color: Colors.white,
-          elevation: 2.0,
-          child: Row(
-            children: [
-              ReusableNetworkImage(
-                height: 20.0.h,
-                width: 20.0.h,
-                imageUrl: imageUrl,
-              ),
-              SizedBox(
-                width: 2.0.h,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    recipeName,
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                  SizedBox(
-                    height: 1.5.h,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        UniconsLine.clock,
-                        size: 16.0,
-                        color: Colors.grey.shade500,
-                      ),
-                      SizedBox(
-                        width: 1.5.w,
-                      ),
-                      Text(
-                        '${prepTime.toStringAsFixed(0)} M Prep',
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 1.0.h,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        UniconsLine.clock,
-                        size: 16.0,
-                        color: Colors.grey.shade500,
-                      ),
-                      SizedBox(
-                        width: 1.5.w,
-                      ),
-                      Text(
-                        '${cookTime.toStringAsFixed(0)} M Cook',
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          savedProvider.addToFav(recipeId, recipeCategory,
-                              recipeName, imageUrl, prepTime, cookTime);
-                        },
-                        icon: Icon(
-                          Icons.bookmark_border,
-                          size: 22.0.sp,
-                        ),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text(
-                          recipeCategory,
-                          style:
-                              Theme.of(context).textTheme.bodyText2!.copyWith(
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                        ),
-                      )
-                    ]),
-              ),
-              const SizedBox(
-                height: 40.0,
-              )
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
