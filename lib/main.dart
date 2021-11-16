@@ -5,11 +5,16 @@ import 'package:recipe_app/provider/recipe_provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'custom_navbar.dart';
+import 'models/saved_recipes.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ListOfRecipes(),
+    MultiProvider(
+      providers: [
+        Provider<ListOfRecipes>(create: (_) => ListOfRecipes(),),
+       /* Provider<SavedRecipes>(create: (_) => SavedRecipes(),)*/
+      ],
+
       child: const MyApp(),
     ),
   );

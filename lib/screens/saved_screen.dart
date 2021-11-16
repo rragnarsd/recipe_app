@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe_app/custom_navbar.dart';
+import 'package:recipe_app/provider/saved_provider.dart';
+import 'package:recipe_app/screens/screens.dart';
 import 'package:recipe_app/utils/utils.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
@@ -8,6 +12,8 @@ class SavedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+/*    final savedProvider = Provider.of<SavedProvider>();*/
+    List recipes = [];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
@@ -27,7 +33,15 @@ class SavedScreen extends StatelessWidget {
                 height: 4.0.h,
               ),
               const SavedTabButtons(),
-              const SavedListView(),
+              //Komin hingað
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  recipes.isEmpty
+                      ? const EmptyRecipe()
+                      : const SavedListView()
+                ],
+              ),
               SizedBox(
                 height: 2.0.h,
               ),
@@ -36,6 +50,32 @@ class SavedScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class EmptyRecipe extends StatelessWidget {
+  const EmptyRecipe({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+            const Text('You haven\'t saved any recipe yet'),
+            const Text('Would you like to do that now?'),
+            OutlinedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CustomNavBar(),
+                ),
+              ),
+              child: Text('Explore'),
+            ),
+          ]);
   }
 }
 

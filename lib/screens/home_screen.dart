@@ -5,7 +5,6 @@ import 'package:recipe_app/utils/utils.dart';
 import 'package:recipe_app/widgets/widgets.dart';
 
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -246,59 +245,42 @@ class HomeGrid extends StatelessWidget {
         itemCount: iconList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return HomeGridItem(
-            text: iconList[index].text,
-            image: iconList[index].icon,
+          return InkWell(
+            child: Container(
+              width: 120.0,
+              padding: const EdgeInsets.all(5.0),
+              child: Material(
+                color: Colors.white,
+                elevation: 2.0,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                     iconList[index].icon,
+                    ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      iconList[index].text,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RecipesScreen(),
+                  settings: RouteSettings(arguments: items[index].category),
+                ),
+              );
+            },
           );
         },
       ),
-    );
-  }
-}
-
-class HomeGridItem extends StatelessWidget {
-  final String text;
-  final String image;
-  const HomeGridItem({
-    Key? key,
-    required this.text,
-    required this.image,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        width: 120.0,
-        padding: const EdgeInsets.all(5.0),
-        child: Material(
-          color: Colors.white,
-          elevation: 2.0,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                image,
-              ),
-              const SizedBox(
-                height: 5.0,
-              ),
-              Text(
-                text,
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-            ],
-          ),
-        ),
-      ),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const RecipesScreen(),
-          ),
-        );
-      },
     );
   }
 }

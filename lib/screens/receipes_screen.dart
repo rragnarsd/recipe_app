@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/provider/recipe_provider.dart';
+import 'package:recipe_app/screens/recipe_screen.dart';
+import 'package:recipe_app/widgets/network_image.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -22,7 +24,7 @@ class RecipesScreen extends StatelessWidget {
                 height: 6.0.h,
               ),
               Text(
-                  categoryName,
+                categoryName,
                 style: Theme.of(context).textTheme.headline1,
               ),
               SizedBox(
@@ -110,15 +112,26 @@ class RecipesListView extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 1.2,
       child: ListView.builder(
           itemCount: recipeList.length,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return RecipesListItem(
-              imageUrl: recipeList[index].recipeImage,
-              recipeName: recipeList[index].recipeName,
-              prepTime: recipeList[index].prepTime,
-              cookTime: recipeList[index].cookTime,
-              recipeCategory: recipeList[index].recipeCategory,
+            return InkWell(
+              child: RecipesListItem(
+                imageUrl: recipeList[index].recipeImage,
+                recipeName: recipeList[index].recipeName,
+                prepTime: recipeList[index].prepTime,
+                cookTime: recipeList[index].cookTime,
+                recipeCategory: recipeList[index].recipeCategory,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RecipeScreen(),
+                    settings: RouteSettings(arguments: recipeList[index]),
+                  ),
+                );
+              },
             );
           }),
     );
@@ -152,13 +165,10 @@ class RecipesListItem extends StatelessWidget {
           elevation: 2.0,
           child: Row(
             children: [
-              SizedBox(
+              ReusableNetworkImage(
                 height: 20.0.h,
                 width: 20.0.h,
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                ),
+                imageUrl: imageUrl,
               ),
               SizedBox(
                 width: 2.0.h,
@@ -221,7 +231,7 @@ class RecipesListItem extends StatelessWidget {
                       IconButton(
                         onPressed: () {},
                         icon: Icon(
-                          UniconsLine.bookmark,
+                          Icons.bookmark_border,
                           size: 22.0.sp,
                         ),
                       ),
@@ -237,7 +247,9 @@ class RecipesListItem extends StatelessWidget {
                       )
                     ]),
               ),
-              SizedBox(height: 40.0,)
+              const SizedBox(
+                height: 40.0,
+              )
             ],
           ),
         ),

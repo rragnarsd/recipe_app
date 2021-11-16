@@ -223,7 +223,7 @@ class RecipeIngredient extends StatelessWidget {
       color: Colors.white,
       elevation: 2.0,
       child: Container(
-        height: 150.0,
+        height: 130.0,
         width: MediaQuery.of(context).size.width / 1.1,
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: SingleChildScrollView(
@@ -272,18 +272,6 @@ class RecipeIngredient extends StatelessWidget {
                       ),
                       Text(
                         popularRecipes.recipeIngredients[2],
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(UniconsLine.check),
-                      const SizedBox(
-                        width: 5.0,
-                      ),
-                      Text(
-                        popularRecipes.recipeIngredients[3],
                         style: Theme.of(context).textTheme.bodyText2,
                       ),
                     ],
