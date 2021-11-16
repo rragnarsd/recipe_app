@@ -10,21 +10,32 @@ class SavedProvider with ChangeNotifier {
 
   void addToFav(String recipeId, String recipeCategory, String recipeName,
       String recipeImage, double prepTime, double cookTime) {
-    _savedRecipes.putIfAbsent(
-      recipeId,
-      () => SavedRecipes(
-        recipeId: DateTime.now().toString(),
-        recipeCategory: recipeCategory,
-        recipeName: recipeName,
-        recipeImage: recipeImage,
-        prepTime: prepTime,
-        cookTime: cookTime,
-      ),
-    );
-    notifyListeners();
+    if (_savedRecipes.containsKey(recipeId)) {
+      _savedRecipes.update(
+          recipeId,
+          (value) => SavedRecipes(
+              recipeId: value.recipeId,
+              recipeCategory: value.recipeCategory,
+              recipeName: value.recipeName,
+              recipeImage: value.recipeImage,
+              prepTime: value.prepTime,
+              cookTime: value.cookTime));
+    } else {
+      _savedRecipes.putIfAbsent(
+        recipeId,
+            () => SavedRecipes(
+          recipeId: recipeId,
+          recipeCategory: recipeCategory,
+          recipeName: recipeName,
+          recipeImage: recipeImage,
+          prepTime: prepTime,
+          cookTime: cookTime,
+        ),
+      );
+    } notifyListeners();
   }
 
- /* void removeFromFav() {
+  /* void removeFromFav() {
     _recipes.clear();
     notifyListeners();
   }*/

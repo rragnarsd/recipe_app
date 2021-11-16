@@ -1,4 +1,5 @@
 class Recipe {
+  final int recipeId;
   final String recipeCategory;
   final String recipeName;
   final String recipeImage;
@@ -10,7 +11,8 @@ class Recipe {
   final String recipeMethod;
 
   Recipe(
-      {required this.recipeCategory,
+      {required this.recipeId,
+      required this.recipeCategory,
       required this.recipeName,
       required this.recipeImage,
       required this.prepTime,

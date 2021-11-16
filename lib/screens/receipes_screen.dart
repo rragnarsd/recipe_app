@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/models/saved_recipes.dart';
 import 'package:recipe_app/provider/recipe_provider.dart';
+import 'package:recipe_app/provider/saved_provider.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
 import 'package:recipe_app/widgets/network_image.dart';
 import 'package:sizer/sizer.dart';
@@ -108,6 +110,8 @@ class RecipesListView extends StatelessWidget {
     final recipesProvider = Provider.of<ListOfRecipes>(context, listen: false);
     final categoryName = ModalRoute.of(context)!.settings.arguments as String;
     final recipeList = recipesProvider.findByCategory(categoryName);
+
+    //id og para við provider
     return SizedBox(
       height: MediaQuery.of(context).size.height * 1.2,
       child: ListView.builder(
@@ -117,6 +121,7 @@ class RecipesListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               child: RecipesListItem(
+                recipeId: recipeList[index].toString(),
                 imageUrl: recipeList[index].recipeImage,
                 recipeName: recipeList[index].recipeName,
                 prepTime: recipeList[index].prepTime,
@@ -141,6 +146,7 @@ class RecipesListView extends StatelessWidget {
 class RecipesListItem extends StatelessWidget {
   const RecipesListItem({
     Key? key,
+    required this.recipeId,
     required this.imageUrl,
     required this.recipeName,
     required this.prepTime,
@@ -148,6 +154,7 @@ class RecipesListItem extends StatelessWidget {
     required this.recipeCategory,
   }) : super(key: key);
 
+  final String recipeId;
   final String imageUrl;
   final String recipeName;
   final double prepTime;
@@ -156,6 +163,7 @@ class RecipesListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final savedProvider = Provider.of<SavedProvider>(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: SizedBox(
@@ -229,7 +237,10 @@ class RecipesListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          savedProvider.addToFav(recipeId, recipeCategory,
+                              recipeName, imageUrl, prepTime, cookTime);
+                        },
                         icon: Icon(
                           Icons.bookmark_border,
                           size: 22.0.sp,

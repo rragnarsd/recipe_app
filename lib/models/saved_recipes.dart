@@ -1,4 +1,6 @@
-class SavedRecipes {
+import 'package:flutter/cupertino.dart';
+
+class SavedRecipes with ChangeNotifier{
   final String recipeId;
   final String recipeCategory;
   final String recipeName;

@@ -4,6 +4,7 @@ import 'package:recipe_app/models/food.dart';
 class ListOfRecipes with ChangeNotifier {
   final List<Recipe> _recipes = [
     Recipe(
+        recipeId: 1,
         recipeCategory: 'Breakfast',
         recipeName: 'Toast',
         recipeImage:
@@ -22,6 +23,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a small bowl, combine avocado, lemon juice, salt, and pepper. Gently mash with the back of a fork. Top toasted bread with mashed avocado mixture. Drizzle with olive oil and sprinkle over desired toppings.',
         recipeReview: 45),
     Recipe(
+        recipeId: 2,
         recipeCategory: 'Breakfast',
         recipeName: 'Smoothie',
         recipeImage:
@@ -39,6 +41,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a blender, add ingredients in the order they are listed. Purée ingredients until smooth.',
         recipeReview: 25),
     Recipe(
+        recipeId: 3,
         recipeCategory: 'Breakfast',
         recipeName: 'Burritos',
         recipeImage:
@@ -60,6 +63,7 @@ class ListOfRecipes with ChangeNotifier {
             'Oil and potatoes together over medium high heat. In large bowl, beat eggs, green chiles, salt and pepper until well blended. In same skillet over medium-high heat, cook sausage 2 to 3 minutes, stirring frequently, until browned. Stir in egg mixture; cook 2 to 3 minutes, stirring occasionally, until scrambled.',
         recipeReview: 155),
     Recipe(
+        recipeId: 4,
         recipeCategory: 'Breakfast',
         recipeName: 'Omelette',
         recipeImage:
@@ -72,6 +76,7 @@ class ListOfRecipes with ChangeNotifier {
             'Whisk eggs, water, salt and pepper. When eggs are almost set on surface but still look moist, cover half of omelette with filling. Slip spatula under unfilled side; fold over onto filled half.',
         recipeReview: 65),
     Recipe(
+        recipeId: 5,
         recipeCategory: 'Breakfast',
         recipeName: 'Smoothie',
         recipeImage:
@@ -89,6 +94,7 @@ class ListOfRecipes with ChangeNotifier {
             'In blender, pulse banana, mango, and pineapple with almond milk until smooth but still thick, stopping and stirring occasionally.',
         recipeReview: 145),
     Recipe(
+        recipeId: 6,
         recipeCategory: 'Lunch',
         recipeName: 'Omelette',
         recipeImage:
@@ -108,6 +114,7 @@ class ListOfRecipes with ChangeNotifier {
             'Combine all ingredients in a microwaveable mug. Cook for 2-3 minutes, making sure the egg doesn’t bubble over. Stir halfway through the cooking process.',
         recipeReview: 15),
     Recipe(
+        recipeId: 7,
         recipeCategory: 'Lunch',
         recipeName: 'Tostadas',
         recipeImage:
@@ -133,6 +140,7 @@ class ListOfRecipes with ChangeNotifier {
             'Prepare the salad. Add the cucumbers, tomatoes, olives, shallots and parsley into a mixing bowl. In a separate bowl whisk together dressing ingredients and pour over the salad.',
         recipeReview: 45),
     Recipe(
+        recipeId: 8,
         recipeCategory: 'Lunch',
         recipeName: 'Naan Pizza',
         recipeImage:
@@ -155,6 +163,7 @@ class ListOfRecipes with ChangeNotifier {
             'Place the naans on one larger or two smaller baking sheets. Spread each naan with an even layer of tomato sauce. Add a few slices of mozzarella to each naan and fill in the gaps with the basil.',
         recipeReview: 82),
     Recipe(
+        recipeId: 9,
         recipeCategory: 'Lunch',
         recipeName: 'Tuna Salad',
         recipeImage:
@@ -174,6 +183,7 @@ class ListOfRecipes with ChangeNotifier {
             'Place drained tuna in a medium bowl. Add the mayonnaise, relish, red onion and a little salt and pepper. Stir with a fork until everything is well combined. Taste and add more salt and pepper as needed.',
         recipeReview: 68),
     Recipe(
+        recipeId: 10,
         recipeCategory: 'Lunch',
         recipeName: 'Chicken Salad',
         recipeImage:
@@ -194,6 +204,7 @@ class ListOfRecipes with ChangeNotifier {
             'Place almonds in a frying pan. Toast over medium-high heat, shaking frequently. Watch carefully, as they burn easily. In a medium bowl, mix together mayonnaise, lemon juice, and pepper. Toss with chicken, almonds, and celery.',
         recipeReview: 27),
     Recipe(
+        recipeId: 11,
         recipeCategory: 'Dinner',
         recipeName: 'Garlic Salmon',
         recipeImage:
@@ -215,6 +226,7 @@ class ListOfRecipes with ChangeNotifier {
             'Heat a tablespoon of butter and a tablespoon of olive oil in a large pan. Wait until the pan is hot and the butter has fully melted. Add the salmon and asparagus, season with salt and pepper , and cook for about 3-4 minutes on one side.',
         recipeReview: 33),
     Recipe(
+        recipeId: 12,
         recipeCategory: 'Dinner',
         recipeName: 'BBQ Chicken',
         recipeImage:
@@ -234,6 +246,7 @@ class ListOfRecipes with ChangeNotifier {
             'Season chicken breast lightly with some sea salt and place in your crockpot. In a mixing bowl combine BBQ sauce, Italian dressing, brown sugar and Worcestershire sauce. Stir until well combined.',
         recipeReview: 245),
     Recipe(
+        recipeId: 13,
         recipeCategory: 'Dinner',
         recipeName: 'Broccoli Pasta',
         recipeImage:
@@ -253,6 +266,7 @@ class ListOfRecipes with ChangeNotifier {
             'Bring a pot of water to a boil, then add the pasta. Boil until the pasta is al dente (7-10 minutes). Add the frozen broccoli florets to the boiling pasta water, turn off the heat, and let sit for 1-2 minutes, or until the broccoli is tender-crisp. Drain the pasta and broccoli in a colander.',
         recipeReview: 82),
     Recipe(
+        recipeId: 14,
         recipeCategory: 'Dinner',
         recipeName: 'Carbonara',
         recipeImage:
@@ -274,6 +288,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a small bowl, whisk together eggs and Parmesan; set aside. Heat a large skillet over medium high heat. Add bacon and cook until brown and crispy, about 6-8 minutes. Stir in garlic until fragrant, about 1 minute. Reduce heat to low.',
         recipeReview: 68),
     Recipe(
+        recipeId: 15,
         recipeCategory: 'Dinner',
         recipeName: 'Lemon Shrimp',
         recipeImage:
@@ -296,6 +311,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a medium bowl, whisk together hoisin sauce, honey, lemon juice, lemon zest, salt and pepper, to taste. In a gallon size Ziploc bag or large bowl, combine shrimp and hoisin mixture; marinate for at least 30 minutes to overnight, turning the bag occasionally. and cooked through, about 6-8 minutes.',
         recipeReview: 127),
     Recipe(
+        recipeId: 16,
         recipeCategory: 'Snack',
         recipeName: 'Cookie Balls',
         recipeImage:
@@ -313,6 +329,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a medium bowl, combine peanut butter, bananas, and vanilla extract until well mixed. Mix in oats and chocolate chips. Make into small bowls, put into the fridge, and wait until they are chill.',
         recipeReview: 67),
     Recipe(
+        recipeId: 17,
         recipeCategory: 'Snack',
         recipeName: 'Apple Chips',
         recipeImage:
@@ -330,6 +347,7 @@ class ListOfRecipes with ChangeNotifier {
             'Place the apple slices flat on a baking sheet, being careful not to overlap them. Sprinkle with cinnamon and sugar. Bake for 1 hour, flip the pieces over, bake for 1 more hour. Let cool in the oven for 1 hour.',
         recipeReview: 15),
     Recipe(
+        recipeId: 18,
         recipeCategory: 'Snack',
         recipeName: 'Pancakes',
         recipeImage:
@@ -342,6 +360,7 @@ class ListOfRecipes with ChangeNotifier {
             'Using a fork, mash the banana in a bowl. Mix 2 eggs into the mashed banana and whisk together. Pour the batter into a lightly oiled pan.',
         recipeReview: 142),
     Recipe(
+        recipeId: 19,
         recipeCategory: 'Snack',
         recipeName: 'Smoothie',
         recipeImage:
@@ -357,6 +376,7 @@ class ListOfRecipes with ChangeNotifier {
         recipeMethod: 'Pour all ingredients into blender. Blend for 1 minute.',
         recipeReview: 102),
     Recipe(
+        recipeId: 20,
         recipeCategory: 'Snack',
         recipeName: 'Energy Balls',
         recipeImage:
@@ -375,6 +395,7 @@ class ListOfRecipes with ChangeNotifier {
             'Combine all ingredients in a food processor or high tech blender. Mix well until the mixture forms a giant, evenly mixed balls. You may have to stop mixing and scrape down the blender once or twice.',
         recipeReview: 47),
     Recipe(
+        recipeId: 21,
         recipeCategory: 'Desert',
         recipeName: 'Mousse',
         recipeImage:
@@ -394,6 +415,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a small saucepan, melt chocolate chips with water; stir until smooth. Stir a small amount of hot chocolate mixture into egg yolk; return all to the pan, stirring constantly. Cook and stir for 2 minutes or until slightly thickened. Remove from the heat; stir in vanilla. Quickly transfer to a small bowl. Stir occasionally until completely cooled. In a small bowl, beat whipping cream until it begins to thicken. Add sugar; beat until soft peaks form. Fold into cooled chocolate mixture. Cover and refrigerate for at least 2 hours.',
         recipeReview: 84),
     Recipe(
+        recipeId: 22,
         recipeCategory: 'Desert',
         recipeName: 'Fried Apples',
         recipeImage:
@@ -411,6 +433,7 @@ class ListOfRecipes with ChangeNotifier {
             'Melt butter in a large cast-iron or other ovenproof skillet. Add apples and 1/2 cup sugar; stir to mix well. Cover and cook over low heat for 20 minutes or until apples are tender, stirring frequently.',
         recipeReview: 215),
     Recipe(
+        recipeId: 23,
         recipeCategory: 'Desert',
         recipeName: 'Mango Sorbet',
         recipeImage:
@@ -427,6 +450,7 @@ class ListOfRecipes with ChangeNotifier {
             'Place all ingredients in a blender; cover and process until smooth. Serve immediately. If desired, for a firmer texture, cover and freeze at least 3 hours.',
         recipeReview: 242),
     Recipe(
+        recipeId: 24,
         recipeCategory: 'Desert',
         recipeName: 'Cream Cake',
         recipeImage:
@@ -444,6 +468,7 @@ class ListOfRecipes with ChangeNotifier {
             'Mix cream and chocolate together. Spread 2 tbsp cream mixture along a plate. Sandwich biscuits together with half the remaining cream mixture. Assemble biscuits upright on prepared plate to form a log. Spread remaining cream mixture over top and sides of log. Cover and refrigerate overnight',
         recipeReview: 102),
     Recipe(
+        recipeId: 25,
         recipeCategory: 'Desert',
         recipeName: 'Cheesecake',
         recipeImage:
@@ -461,6 +486,7 @@ class ListOfRecipes with ChangeNotifier {
             'Add biscuits to food processor. Finely grate the rind of half the orange. Use a zester to zest the remaining orange half. Juice the orange. Process the cream cheese, condensed milk, finely grated orange rind and 2 tablespoons of orange juice in the food processor until smooth.',
         recipeReview: 47),
     Recipe(
+        recipeId: 26,
         recipeCategory: 'Beverage',
         recipeName: 'Smoothie',
         recipeImage:
@@ -477,6 +503,7 @@ class ListOfRecipes with ChangeNotifier {
             'Blend milk, bananas, and sugar substitute in a blender or food processor until smooth.',
         recipeReview: 24),
     Recipe(
+        recipeId: 27,
         recipeCategory: 'Beverage',
         recipeName: 'Zinger Juice',
         recipeImage:
@@ -489,6 +516,7 @@ class ListOfRecipes with ChangeNotifier {
             'Press lemons, carrots, apples, and beets through a juicer and into a large glass.',
         recipeReview: 115),
     Recipe(
+        recipeId: 28,
         recipeCategory: 'Beverage',
         recipeName: 'Lemonade',
         recipeImage:
@@ -508,6 +536,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a small saucepan over medium heat, combine sugar and 1 cup of water. Bring to a simmer and stir until dissolved. Let cool. In a blender, combine strawberries and 1 cup water. Blend until pureed. Using a fine mesh strainer, strain puree and discard solids.',
         recipeReview: 193),
     Recipe(
+        recipeId: 29,
         recipeCategory: 'Beverage',
         recipeName: 'Dalgona',
         recipeImage:
@@ -525,6 +554,7 @@ class ListOfRecipes with ChangeNotifier {
             'In a medium bowl, combine sugar, coffee, and water. Using a hand mixer or a whisk, vigorously whisk until mixture turns silky smooth and shiny, then continue whisking until it thickens and holds its lofty, foamy shape. Fill a glass most of the way full with ice and milk, then dollop and swirl the whipped coffee mixture on top',
         recipeReview: 202),
     Recipe(
+        recipeId: 30,
         recipeCategory: 'Beverage',
         recipeName: 'Thai Iced Tea',
         recipeImage:
@@ -547,6 +577,10 @@ class ListOfRecipes with ChangeNotifier {
 
   List<Recipe> get getRecipes {
     return _recipes;
+  }
+
+  Recipe findById(String chosenId) {
+    return _recipes.firstWhere((element) => element.recipeId == chosenId);
   }
 
   List<dynamic> findByCategory(String categoryName) {

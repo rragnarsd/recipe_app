@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/provider/recipe_provider.dart';
+import 'package:recipe_app/provider/saved_provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'custom_navbar.dart';
@@ -11,10 +12,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        Provider<ListOfRecipes>(create: (_) => ListOfRecipes(),),
-       /* Provider<SavedRecipes>(create: (_) => SavedRecipes(),)*/
+        ChangeNotifierProvider(create: (_) => ListOfRecipes()),
+        ChangeNotifierProvider(create: (_) => SavedProvider()),
       ],
-
       child: const MyApp(),
     ),
   );
