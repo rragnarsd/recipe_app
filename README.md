@@ -25,7 +25,8 @@
   - <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ## :bulb: Challenges
-- The state management! 
+- The challenges that I faced building this app was related to state management. 
+- I used Provider and I had two of them, one for the recipes and the other for saving them. 
 
 ## :technologist: Todo
 - :white_large_square: Add Authentication
@@ -33,6 +34,12 @@
 - :white_large_square: Implement the Search logic on the HomeScreen
 - :white_large_square: Implement dark/light mode
 - :white_large_square: MAYBE connect the app with a db - Sqflite or Hive?
+
+## Screenshot
+![recipes](https://user-images.githubusercontent.com/44742460/142296014-680b75c5-2d54-4b39-af30-f37ce8286cdc.png)
+
+## Live preview
+https://user-images.githubusercontent.com/44742460/142296382-69f5cda4-6a73-433f-8a6e-6b1645af1b18.mp4
 
 A new Flutter application.
 
