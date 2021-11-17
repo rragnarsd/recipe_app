@@ -18,9 +18,10 @@ class SavedScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
-            child: savedProvider.list.isEmpty
+            child: savedProvider.getSaved.isEmpty
                 ? const EmptyRecipe()
-                : SavedRecipes(savedProvider: savedProvider)),
+                : const SavedRecipes(),
+        ),
       ),
     );
   }
@@ -29,10 +30,7 @@ class SavedScreen extends StatelessWidget {
 class SavedRecipes extends StatefulWidget {
   const SavedRecipes({
     Key? key,
-    required this.savedProvider,
   }) : super(key: key);
-
-  final SavedProvider savedProvider;
 
   @override
   State<SavedRecipes> createState() => _SavedRecipesState();
@@ -41,6 +39,7 @@ class SavedRecipes extends StatefulWidget {
 class _SavedRecipesState extends State<SavedRecipes> {
   @override
   Widget build(BuildContext context) {
+    final savedProvider = Provider.of<SavedProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -67,9 +66,10 @@ class _SavedRecipesState extends State<SavedRecipes> {
                   height: 15.0,
                 );
               },
-              itemCount: widget.savedProvider.list.length,
+              itemCount: savedProvider.getSaved.length,
               itemBuilder: (context, index) {
-                var recipe = widget.savedProvider.list[index];
+                  var recipe = savedProvider.getSaved.values
+                      .toList()[index];
                 return Dismissible(
                   direction: DismissDirection.endToStart,
                   background: Container(
@@ -86,10 +86,10 @@ class _SavedRecipesState extends State<SavedRecipes> {
                       ),
                     ),
                   ),
-                  key: UniqueKey(),
+                    key: UniqueKey(),
                   onDismissed: (direction) {
                     setState(() {
-                      widget.savedProvider.list.removeAt(index);
+                      savedProvider.removeRecipe(recipe.recipeId);
                     });
 
                     ScaffoldMessenger.of(context).showSnackBar(

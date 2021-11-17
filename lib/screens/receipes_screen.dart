@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recipe_app/models/models.dart';
 import 'package:recipe_app/provider/provider.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
 import 'package:recipe_app/widgets/network_image.dart';
@@ -57,7 +56,6 @@ class _RecipesListViewState extends State<RecipesListView> {
     final recipesProvider = Provider.of<ListOfRecipes>(context, listen: false);
     final categoryName = ModalRoute.of(context)!.settings.arguments as String;
     final recipeList = recipesProvider.findByCategory(categoryName);
-
 
     return SizedBox(
       height: MediaQuery.of(context).size.height * 1.2,
@@ -141,7 +139,17 @@ class _RecipesListViewState extends State<RecipesListView> {
                               children: [
                                 IconButton(
                                     onPressed: () {
-                                       context
+                                   /*   print(recipeList[index].recipeId,);*/
+                                      context
+                                          .read<SavedProvider>()
+                                          .addAndRemoveFromSaved(
+                                            recipeList[index].recipeId.toString(),
+                                              recipeList[index].recipeCategory.toString(),
+                                              recipeList[index].cookTime,
+                                              recipeList[index].prepTime,
+                                              recipeList[index].recipeImage.toString(),
+                                              recipeList[index].recipeName.toString());
+                                      /* context
                                           .read<SavedProvider>()
                                           .addRecipe(
                                             SavedRecipes(
@@ -159,7 +167,7 @@ class _RecipesListViewState extends State<RecipesListView> {
                                               cookTime:
                                                   recipeList[index].cookTime,
                                             ),
-                                          );
+                                          );*/
                                     },
                                     icon: Icon(
                                       Icons.bookmark_border,

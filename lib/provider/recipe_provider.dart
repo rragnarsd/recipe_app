@@ -634,7 +634,7 @@ class ListOfRecipes with ChangeNotifier {
     return _recipes;
   }
 
-  Recipe findById(String id) {
+  Recipe findById(double id) {
     return _recipes.firstWhere((i) => i.recipeId == id);
   }
 
