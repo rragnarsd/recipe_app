@@ -7,6 +7,9 @@
 - Cached_Network_Image - https://pub.dev/packages/cached_network_image
 - Provider - https://pub.dev/packages/provider
 
+## :hammer_and_wrench: New Widgets/Stuff that I tried
+- Dismissible
+
 ##  :art: Design
 - The design is inspired by **Abdul Basit**
   - https://dribbble.com/shots/15658336-Food-Recipe-App/attachments/7452318?mode=media
@@ -20,6 +23,16 @@
   - <div>Icons made by <a href="https://www.flaticon.com/authors/hajicon" title="HAJICON">HAJICON</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   - <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   - <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+## :bulb: Challenges
+- The state management! 
+
+## :technologist: Todo
+- :white_large_square: Add Authentication
+- :white_large_square: Finish the ProfileScreen
+- :white_large_square: Implement the Search logic on the HomeScreen
+- :white_large_square: Implement dark/light mode
+- :white_large_square: MAYBE connect the app with a db - Sqflite or Hive?
 
 A new Flutter application.
 
