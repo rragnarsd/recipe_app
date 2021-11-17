@@ -17,11 +17,10 @@ class SavedScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: savedProvider.list.isEmpty
-              ? const EmptyRecipe()
-              : SavedRecipes(savedProvider: savedProvider),
-        ),
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: savedProvider.list.isEmpty
+                ? const EmptyRecipe()
+                : SavedRecipes(savedProvider: savedProvider)),
       ),
     );
   }
@@ -72,6 +71,7 @@ class _SavedRecipesState extends State<SavedRecipes> {
               itemBuilder: (context, index) {
                 var recipe = widget.savedProvider.list[index];
                 return Dismissible(
+                  direction: DismissDirection.endToStart,
                   background: Container(
                     alignment: AlignmentDirectional.centerEnd,
                     color: Colors.red,

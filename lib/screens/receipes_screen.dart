@@ -57,7 +57,7 @@ class _RecipesListViewState extends State<RecipesListView> {
     final recipesProvider = Provider.of<ListOfRecipes>(context, listen: false);
     final categoryName = ModalRoute.of(context)!.settings.arguments as String;
     final recipeList = recipesProvider.findByCategory(categoryName);
-/*    final savedProvider = Provider.of<SavedRecipes>(context);*/
+
 
     return SizedBox(
       height: MediaQuery.of(context).size.height * 1.2,
@@ -141,7 +141,7 @@ class _RecipesListViewState extends State<RecipesListView> {
                               children: [
                                 IconButton(
                                     onPressed: () {
-                                      context
+                                       context
                                           .read<SavedProvider>()
                                           .addRecipe(
                                             SavedRecipes(
