@@ -45,7 +45,7 @@ class TabButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 3.3,
+      width: MediaQuery.of(context).size.width / 3.5,
       child: OutlinedButton(
         onPressed: () {},
         child: Text(

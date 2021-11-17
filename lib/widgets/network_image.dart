@@ -18,8 +18,6 @@ class ReusableNetworkImage extends StatelessWidget {
     return CachedNetworkImage(
       height: height,
       width: width,
-      /*     height: 200.0,
-      width: 200.0,*/
       imageUrl: imageUrl,
       fit: BoxFit.cover,
       progressIndicatorBuilder: (context, url, downloadProgress) => Center(

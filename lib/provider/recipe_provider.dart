@@ -479,7 +479,7 @@ class ListOfRecipes with ChangeNotifier {
     Recipe(
       recipeId: 23,
       recipeCategory: 'Desert',
-      recipeName: 'Mango Sorbet',
+      recipeName: 'Sorbet',
       recipeImage:
           'https://images.pexels.com/photos/5060453/pexels-photo-5060453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       prepTime: 5.0,

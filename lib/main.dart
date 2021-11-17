@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:recipe_app/provider/recipe_provider.dart';
-import 'package:recipe_app/provider/saved_provider.dart';
+import 'package:recipe_app/provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'custom_navbar.dart';

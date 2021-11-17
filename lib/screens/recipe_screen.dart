@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe_app/models/models.dart';
+import 'package:recipe_app/provider/provider.dart';
 import 'package:unicons/unicons.dart';
 
 class RecipeScreen extends StatelessWidget {
@@ -103,6 +105,7 @@ class RecipeAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final popularRecipes = ModalRoute.of(context)!.settings.arguments as Recipe;
+    final savedProvider = Provider.of<SavedProvider>(context);
     return Material(
       color: Colors.white,
       elevation: 2.0,

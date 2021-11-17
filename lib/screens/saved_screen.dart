@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/custom_navbar.dart';
-import 'package:recipe_app/provider/saved_provider.dart';
-import 'package:recipe_app/widgets/network_image.dart';
-import 'package:recipe_app/widgets/tab_row.dart';
+import 'package:recipe_app/provider/provider.dart';
+import 'package:recipe_app/widgets/widgets.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -189,6 +188,8 @@ class EmptyRecipe extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            //Ath á minni skjá
+            SizedBox(height: 10.h,),
             Image.asset('assets/recipebook.gif'),
             Text(
               'You haven\'t saved any recipes yet',

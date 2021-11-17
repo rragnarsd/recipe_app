@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/provider/provider.dart';
-import 'package:recipe_app/screens/recipe_screen.dart';
-import 'package:recipe_app/widgets/network_image.dart';
-import 'package:recipe_app/widgets/tab_row.dart';
+import 'package:recipe_app/screens/screens.dart';
+import 'package:recipe_app/widgets/widgets.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -56,7 +55,7 @@ class _RecipesListViewState extends State<RecipesListView> {
     final recipesProvider = Provider.of<ListOfRecipes>(context, listen: false);
     final categoryName = ModalRoute.of(context)!.settings.arguments as String;
     final recipeList = recipesProvider.findByCategory(categoryName);
-
+    final savedProvider = Provider.of<SavedProvider>(context);
     return SizedBox(
       height: MediaQuery.of(context).size.height * 1.2,
       child: ListView.builder(
@@ -76,7 +75,7 @@ class _RecipesListViewState extends State<RecipesListView> {
                       children: [
                         ReusableNetworkImage(
                           height: 20.0.h,
-                          width: 20.0.h,
+                          width: 18.0.h,
                           imageUrl: recipeList[index].recipeImage,
                         ),
                         SizedBox(
@@ -139,52 +138,31 @@ class _RecipesListViewState extends State<RecipesListView> {
                               children: [
                                 IconButton(
                                     onPressed: () {
-                                   /*   print(recipeList[index].recipeId,);*/
                                       context
                                           .read<SavedProvider>()
                                           .addAndRemoveFromSaved(
-                                            recipeList[index].recipeId.toString(),
-                                              recipeList[index].recipeCategory.toString(),
-                                              recipeList[index].cookTime,
-                                              recipeList[index].prepTime,
-                                              recipeList[index].recipeImage.toString(),
-                                              recipeList[index].recipeName.toString());
-                                      /* context
-                                          .read<SavedProvider>()
-                                          .addRecipe(
-                                            SavedRecipes(
-                                              recipeId: recipeList[index]
+                                              recipeList[index]
                                                   .recipeId
                                                   .toString(),
-                                              recipeCategory: recipeList[index]
-                                                  .recipeCategory,
-                                              recipeName:
-                                                  recipeList[index].recipeName,
-                                              recipeImage:
-                                                  recipeList[index].recipeImage,
-                                              prepTime:
-                                                  recipeList[index].prepTime,
-                                              cookTime:
-                                                  recipeList[index].cookTime,
-                                            ),
-                                          );*/
+                                              recipeList[index].recipeCategory,
+                                              recipeList[index].cookTime,
+                                              recipeList[index].prepTime,
+                                              recipeList[index].recipeImage,
+                                              recipeList[index].recipeName);
                                     },
-                                    icon: Icon(
-                                      Icons.bookmark_border,
-                                      size: 22.0.sp,
-                                    )),
-                                OutlinedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    recipeList[index].recipeCategory,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2!
-                                        .copyWith(
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                  ),
-                                )
+                                    icon: savedProvider.getSaved
+                                            .containsKey(recipeList[index]
+                                        .recipeId
+                                        .toString(),)
+                                        ? Icon(
+                                            Icons.bookmark,
+                                            size: 22.0.sp,
+                                          )
+                                        : Icon(
+                                            Icons.bookmark_border,
+                                            size: 22.0.sp,
+                                          ),
+                                ),
                               ]),
                         ),
                         const SizedBox(
