@@ -5,11 +5,14 @@
 - Unicons - https://pub.dev/packages/unicons
 - Google_Fonts - https://pub.dev/packages/google_fonts
 - Cached_Network_Image - https://pub.dev/packages/cached_network_image
+- Provider - https://pub.dev/packages/provider
 
 ##  :art: Design
 - The design is inspired by **Abdul Basit**
   - https://dribbble.com/shots/15658336-Food-Recipe-App/attachments/7452318?mode=media
 - Font Family: OpenSans & Montserrat
+- Gif is from:
+  - Lottie - https://lottiefiles.com/
 - Images are from:
   - www.unsplash.com
   - www.pexels.com
