@@ -11,4 +11,9 @@ class SavedProvider with ChangeNotifier {
     _list.add(savedRecipes);
     notifyListeners();
   }
+
+  void removeRecipe() {
+    _list.clear();
+    notifyListeners();
+  }
 }

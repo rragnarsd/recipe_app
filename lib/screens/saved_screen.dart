@@ -11,21 +11,23 @@ class SavedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final savedProvider = Provider.of<SavedProvider>(context);
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: savedProvider.list.isEmpty
-              ? const EmptyRecipe()
-              : SavedRecipes(savedProvider: savedProvider),
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: savedProvider.list.isEmpty
+                ? const EmptyRecipe()
+                : SavedRecipes(savedProvider: savedProvider),
+          ),
         ),
       ),
     );
   }
 }
 
-class SavedRecipes extends StatelessWidget {
+class SavedRecipes extends StatefulWidget {
   const SavedRecipes({
     Key? key,
     required this.savedProvider,
@@ -33,6 +35,11 @@ class SavedRecipes extends StatelessWidget {
 
   final SavedProvider savedProvider;
 
+  @override
+  State<SavedRecipes> createState() => _SavedRecipesState();
+}
+
+class _SavedRecipesState extends State<SavedRecipes> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -48,18 +55,50 @@ class SavedRecipes extends StatelessWidget {
         SizedBox(
           height: 4.0.h,
         ),
-       const SavedTabRow(),
+        const SavedTabRow(),
         SizedBox(
           height: 2.0.h,
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.7,
-          child: ListView.builder(
-              itemCount: savedProvider.list.length,
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: ListView.separated(
+            padding: EdgeInsets.zero,
+              physics: const AlwaysScrollableScrollPhysics(),
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(
+                  height: 15.0,
+                );
+              },
+              itemCount: widget.savedProvider.list.length,
               itemBuilder: (context, index) {
-                var recipe = savedProvider.list[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
+                var recipe = widget.savedProvider.list[index];
+                return Dismissible(
+                  background: Container(
+                    alignment: AlignmentDirectional.centerEnd,
+                    color: Colors.red,
+                    height: 20.0,
+                    padding: EdgeInsets.zero,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 15.0, 0.0),
+                      child: Icon(
+                        UniconsLine.trash,
+                        color: Colors.white,
+                        size: 20.sp,
+                      ),
+                    ),
+                  ),
+                  key: UniqueKey(),
+                  onDismissed: (direction) {
+                    setState(() {
+                      widget.savedProvider.list.removeAt(index);
+                    });
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('${recipe.recipeName} deleted'),
+                      ),
+                    );
+                  },
                   child: SizedBox(
                     height: 20.0.h,
                     child: Material(
@@ -84,9 +123,7 @@ class SavedRecipes extends StatelessWidget {
                             children: [
                               Text(
                                 recipe.recipeName,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline4,
+                                style: Theme.of(context).textTheme.headline4,
                               ),
                               SizedBox(
                                 height: 1.5.h,
@@ -103,9 +140,8 @@ class SavedRecipes extends StatelessWidget {
                                   ),
                                   Text(
                                     '${recipe.prepTime.toStringAsFixed(0)} M Prep',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2,
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2,
                                   ),
                                 ],
                               ),
@@ -124,45 +160,13 @@ class SavedRecipes extends StatelessWidget {
                                   ),
                                   Text(
                                     '${recipe.cookTime.toStringAsFixed(0)} M Cook',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2,
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2,
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.end,
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      UniconsLine.bookmark,
-                                      size: 22.0.sp,
-                                    ),
-                                  ),
-                                  OutlinedButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      recipe.recipeCategory,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText2!
-                                          .copyWith(
-                                        color: Theme.of(context)
-                                            .primaryColor,
-                                      ),
-                                    ),
-                                  )
-                                ]),
-                          )
                         ],
                       ),
                     ),
@@ -257,8 +261,8 @@ class TabButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
-            color: Theme.of(context).primaryColor,
-          ),
+                color: Theme.of(context).primaryColor,
+              ),
         ),
       ),
     );
