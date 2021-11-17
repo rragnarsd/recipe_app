@@ -6,7 +6,6 @@ import 'package:recipe_app/provider/saved_provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'custom_navbar.dart';
-import 'models/saved_recipes.dart';
 
 void main() {
   runApp(

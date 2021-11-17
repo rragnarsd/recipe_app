@@ -9,16 +9,19 @@ class Recipe {
   final int recipeServing;
   final List recipeIngredients;
   final String recipeMethod;
+  final bool isPopular;
 
-  Recipe(
-      {required this.recipeId,
-      required this.recipeCategory,
-      required this.recipeName,
-      required this.recipeImage,
-      required this.prepTime,
-      required this.cookTime,
-      required this.recipeServing,
-      required this.recipeIngredients,
-      required this.recipeMethod,
-      required this.recipeReview});
+  Recipe({
+    required this.recipeId,
+    required this.recipeCategory,
+    required this.recipeName,
+    required this.recipeImage,
+    required this.prepTime,
+    required this.cookTime,
+    required this.recipeServing,
+    required this.recipeIngredients,
+    required this.recipeMethod,
+    required this.recipeReview,
+    required this.isPopular,
+  });
 }

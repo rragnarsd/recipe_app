@@ -6,6 +6,14 @@ class SavedProvider with ChangeNotifier {
   final List<SavedRecipes> _list = [];
 
   List<SavedRecipes> get list => _list;
+/*
+  void addAndRemoveFromSaved(SavedRecipes savedRecipes) {
+    if (_list.contains(savedRecipes)) {
+      removeRecipe();
+    } else {
+      _list.add(savedRecipes);
+    }
+  }*/
 
   void addRecipe(SavedRecipes savedRecipes) {
     _list.add(savedRecipes);

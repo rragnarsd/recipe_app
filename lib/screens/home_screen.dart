@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe_app/provider/recipe_provider.dart';
 import 'package:unicons/unicons.dart';
 import 'screens.dart';
 import 'package:recipe_app/utils/utils.dart';
@@ -90,6 +92,8 @@ class HomePopularGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final recipes = Provider.of<ListOfRecipes>(context);
+    final popularRecipes = recipes.popularRecipes;
     return SizedBox(
       height: 350.0,
       child: ListView.builder(

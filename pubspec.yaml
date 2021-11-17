@@ -33,5 +33,6 @@ flutter:
 
   assets:
       - assets/
+      - assets/recipebook.gif
 
 
