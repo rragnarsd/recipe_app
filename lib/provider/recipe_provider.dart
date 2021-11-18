@@ -650,4 +650,12 @@ class ListOfRecipes with ChangeNotifier {
   List<Recipe> get popularRecipes {
     return _recipes.where((element) => element.isPopular).toList();
   }
+
+  List<dynamic> searchRecipe(String searchText) {
+    List _searchList = _recipes
+        .where((element) =>
+            element.recipeName.toLowerCase().contains(searchText.toLowerCase()))
+        .toList();
+    return _searchList;
+  }
 }
