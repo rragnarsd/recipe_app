@@ -32,7 +32,6 @@
 - :white_large_square: Add Authentication
 - :white_large_square: Finish the ProfileScreen
 - :white_large_square: Implement the Search logic on the HomeScreen
-- :white_large_square: Implement dark/light mode
 - :white_large_square: MAYBE connect the app with a db - Sqflite or Hive?
 
 ## Screenshot
